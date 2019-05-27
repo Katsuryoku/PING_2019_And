@@ -1,0 +1,66 @@
+h1{
+	text-align: center;
+	margin-top: 2%;
+	font-size: 500%;
+	margin-bottom: 3%;
+	font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
+}
+
+p{
+	text-align: center;
+	margin-top: 5%
+}
+
+button {
+  border-radius: 10px;
+  font-size: xx-large;
+  
+    font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
+
+	background-color: white; 
+	display: inline-block;
+	margin: 2% 0.5% ;
+
+	cursor: pointer;
+
+}
+
+#button1{
+	border: 2px solid #ABB2B9;
+  color: #ABB2B9; 
+  
+}
+
+#button2{
+	border: 2px solid #566573;
+  color: #566573; 
+}
+#button3{
+		border: 2px solid #2C3E50;
+
+  color: #2C3E50; 
+}
+#button4{
+	border: 2px solid #212F3D;
+  color: #212F3D; 
+}
+#button1:hover{
+	color : white;
+	background-color: #ABB2B9;
+
+}
+#button2:hover{
+	color: white;
+	background-color: #566573;
+}
+
+#button3:hover{
+	color: white;
+	background-color: #2C3E50;
+}
+
+#button4:hover{
+	color: white;
+	background-color: #212F3D;
+}
+
