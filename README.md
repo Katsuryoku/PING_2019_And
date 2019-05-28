@@ -14,4 +14,5 @@ Comment configurer la BDD MySQL :
 	4) sauvegarder
 	5) redémarrer les services Mysql (Clique droit sur l'icone -> Mysql -> Administration -> redémarrer le service)
 	6) Aller sur "http://localhost/phpmyadmin/index.php"
+	6bis) Aller sur "http://localhost/PING_2019_And/Model/model.php" et qu'il n'y ai pas d'erreur.
 	7) Pas de mot de passe et vérifier que la BDD est bien présente
