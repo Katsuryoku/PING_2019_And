@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = 'localhost';
 $dbname = 'andrice';
 $ndc = 'root';
@@ -25,7 +26,7 @@ else
 	if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 		//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 	} else {
-		echo "Sorry, there was an error uploading your file.";
+		die('Sorry, there was an error uploading your file.');
 	}
 	}
 }
@@ -103,7 +104,7 @@ try
 					}
 					catch(PDOException $e)
 					{
-						echo $sql . "<br>" . $e->getMessage().PHP_EOL;
+						die($sql . "<br>" . $e->getMessage());
 					}
 				}
 				else
@@ -116,10 +117,11 @@ try
 		//echo "end of file.";*
 	// Suppression du fichier local
 	unlink($Filepath) or die("Couldn't delete file");
-	header( "Location: ../View/addExcel.html" );
+	$_SESSION['varname'] = "WORKED";
+	header( "Location: ../View/addExcel.php" );
 }
 catch (Exception $E)
 {
-	echo $E -> getMessage();
+	die($E -> getMessage());
 }
 ?>
