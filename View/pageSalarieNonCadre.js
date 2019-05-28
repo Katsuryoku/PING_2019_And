@@ -1,3 +1,5 @@
+
+
 function showPopUp(){
 
 	for (i=0; i<document.forms.f.motifAbsence.options.length; i++) { 
@@ -6,6 +8,8 @@ function showPopUp(){
 			if(i===2) showPopUp2();
 			if(i===3) showPopUp3();
 			if(i===4) showPopUp4();
+			let typeDeces = document.getElementById("deces");
+			typeDeces.style.display="none";
   		} 
 	} 
 		
@@ -16,8 +20,10 @@ function showPopUp1(){
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.display="none";
 	}
+
 	let popup = document.getElementById("popup1");
 	popup.style.display = "block";
+
 }
 function showPopUp2(){
 	let elements = document.getElementsByClassName("popups");
@@ -42,5 +48,12 @@ function showPopUp4(){
 	}
 	let popup = document.getElementById("popup4")
 	popup.style.display = "block";
+
 }
 
+
+function clickDeces(){
+	console.log("ge");
+	let typeDeces = document.getElementById("deces");
+	typeDeces.style.display="block";
+}

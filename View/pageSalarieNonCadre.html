@@ -22,7 +22,7 @@
 
 	</div>
 	<div id="demandeAbsence">
-		<form id="f">
+		<form id="f" onsubmit="return false">
 			<fieldset id="section-1">
 			<label for="motifAbsence">Veuillez choisir un motif d'absence :</label><br><br>
 			<select name="motifAbsence" id="motifAbsence" size="1" onchange="showPopUp()">
@@ -35,7 +35,7 @@
 				<option value="f">Congé maternité</option>
 				<option value="g">Congé enfant malade</option>
 			</select><br><br>
-			<input type="submit" value="Demander" />
+			<input type="submit" value="Demander" onclick="clickDeces()" />
 			</fieldset>
 		</form>
 	</div>
@@ -43,6 +43,23 @@
 	<div class="popups" id="popup2">Informations Mariage</div>
 	<div class="popups" id="popup3">Informations Naissance</div>
 	<div class="popups" id="popup4">Informations Examens</div>
+	<div id="deces">
+		<form id="fDeces">
+			<fieldset id="section-2">
+			<label for="casDeces">Veuillez renseigner votre lien de parenté avec le/la défunt.e :</label><br><br>
+			<select name="casDeces" id="casDeces" size="1">
+				<option value="" disabled selected>--Choisissez votre situation--</option>
+				<option value="a">Enfant, conjoint ou ascendants</option>
+				<option value="b">Collatéraux jusqu'au 2e degré</option>
+				<option value="c">Beaux-parents</option>
+				
+			</select><br><br>
+			<input id="bDeces" type="submit" value="Demander"  />
+			</fieldset>
+		</form>
+
+	</div>
+	
 
 	<script  src='pageSalarieNonCadre.js'></script>
 </body>
