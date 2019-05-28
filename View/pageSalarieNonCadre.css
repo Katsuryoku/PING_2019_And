@@ -37,6 +37,9 @@ p{
 #demandeAbsence{
 	text-align: center;
 }
+#deces{
+	text-align: center;
+}
 #CP {
   	box-sizing: border-box;
   	width: 80%;
@@ -65,7 +68,19 @@ input{
 	margin-left: 35%;
 	margin-right: 35%;
 }
+#section-2{
+
+	border:2px solid;
+	margin-top: 5%;
+	margin-left: 35%;
+	margin-right: 35%;
+}
+
 
 .popups{
+	display: none;
+}
+
+#deces{
 	display: none;
 }
