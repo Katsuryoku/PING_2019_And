@@ -1,0 +1,59 @@
+body{
+	background-color: #ADD8E6;
+}
+
+.vertical-menu {
+  width: 200px; 
+}
+
+.vertical-menu label {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+#div1{
+	border:2px solid;
+	margin-right: 35%;
+	margin-left: 35%;
+}
+
+
+
+p{
+	text-align: center;
+}
+
+#demandeAbsence{
+	text-align: center;
+}
+#CP{
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+#joursRestant{
+	font-size: xx-large;
+}
+
+input{
+	background-color: #5D6D7E ;
+	color: white;
+	font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
+	cursor: pointer;
+	border-radius: 10px;
+
+}
+
+#section-1{
+	border:2px solid;
+	margin-top: 5%;
+	margin-left: 35%;
+	margin-right: 35%;
+}
+
+.popups{
+	display: none;
+}
