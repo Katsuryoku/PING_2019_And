@@ -3,19 +3,27 @@ body{
 }
 
 .vertical-menu {
-  width: 200px; 
+	width: 200px; 
 }
 
 .vertical-menu label {
-  background-color: #eee; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove underline from links */
+	background-color: #eee; /* Grey background color */
+	color: black; /* Black text color */
+	display: block; /* Make the links appear below each other */
+	padding: 12px; /* Add some padding */
+	text-decoration: none; /* Remove underline from links */
 }
 
 #div1{
-	border:2px solid;
+	border-radius: 0%;
+	/* remove if you don't care about IE8 */
+	width: 250px;
+	padding: 25px;
+	background: #fff;
+	border: 2px solid #00f;
+	color: #00f;
+	text-align: center;
+	font: 32px Arial, sans-serif;
 	margin-right: 35%;
 	margin-left: 35%;
 }
@@ -32,13 +40,17 @@ p{
 #deces{
 	text-align: center;
 }
-#CP{
-	font-size: xx-large;
-	font-weight: bold;
-}
-
-#joursRestant{
-	font-size: xx-large;
+#CP {
+  	box-sizing: border-box;
+  	width: 80%;
+  	height: 80%;
+	border-radius: 50%;
+	padding : 25% ;
+	background: #fff;
+	border: 2px solid #00f;
+	color: #00f;
+	text-align: left;
+	font: 22px Arial, sans-serif;
 }
 
 input{
