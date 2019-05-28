@@ -1,0 +1,34 @@
+#OLDECPN {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #fff;
+  line-height: 500px;
+  text-align: center;
+  background: #00f
+}
+#SOLDE{
+  border-radius: 0%;
+  /* remove if you don't care about IE8 */
+  width: 150px;
+  padding: 25px;
+  background: #fff;
+  border: 2px solid #00f;
+  color: #00f;
+  text-align: center;
+  font: 32px Arial, sans-serif;
+}
+#SOLDECPN {
+  border-radius: 50%;
+  /* remove if you don't care about IE8 */
+  width: 100px;
+  height: 100px;
+  padding-top: 25px;
+  padding-left: 10px;
+  background: #fff;
+  border: 2px solid #00f;
+  color: #00f;
+  text-align: left;
+  font: 40px Arial, sans-serif;
+}
