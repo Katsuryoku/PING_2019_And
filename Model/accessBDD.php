@@ -1,5 +1,4 @@
 <?php
-
 // retourne la réponse de la base de donnée à un access par id sur une base
 function accessBDD($id,$base,$cond = "",$limit = 1,$fetch= TRUE){
 	private $host = 'localhost';
@@ -53,7 +52,7 @@ if ($fetch = TRUE){
 	return $reponse;
 }
 
-}
+};
 
 
 function insertType($id,$name,$desc){
@@ -61,22 +60,21 @@ function insertType($id,$name,$desc){
 	$dbname = 'andrice';
 	$ndc = 'root';
 	$password = '';
-/**
-* Connexion à la base de donnée
-**/
-try
-{
-	$bdd = new PDO('mysql:'.$host.'=localhost;dbname='.$dbname.';charset=utf8', $ndc, $password);
-}
-catch (Exception $e)
-{
-	die('Erreur : ' . $e->getMessage());
-	echo "<script> alert(Erreur : ".$e->getMessage().")</script>";
-}	
-$query = "INSERT INTO typedemande (`idtype`, `Nom`, `Descriptif`,`status`) VALUES (".$id.", ".$name.", ".$desc.", 0)";
-$bdd->exec($query);
-echo "<script> alert(Erreur : done) </script>";
-}
+	/**
+	* Connexion à la base de donnée
+	**/
+	try
+	{
+		$bdd = new PDO('mysql:'.$host.'=localhost;dbname='.$dbname.';charset=utf8', $ndc, $password);
+	}
+	catch (Exception $e)
+	{
+		die('Erreur : ' . $e->getMessage());
+		echo "<script> alert(Erreur : ".$e->getMessage().")</script>";
+	}	
+	$query = "INSERT INTO typedemande (`idtype`, `Nom`, `Descriptif`,`status`) VALUES (".$id.", ".$name.", ".$desc.", 0)";
+	$bdd->exec($query);
+};
 
 
 function updateStatu($base,$attr){
@@ -94,4 +92,4 @@ function updateStatu($base,$attr){
 	}
 	$query = "UPDATE ".$base." SET ".$attr." = 1 WHERE ".$attr."=0";
 	$bdd->exec($query);
-}
+};
