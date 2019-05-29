@@ -36,7 +36,7 @@ else
 **/
 try
 {
-	$bdd = new PDO('mysql:'.$host.'=localhost;dbname='.$dbname.';charset=utf8', $ndc, $password);
+	$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $ndc, $password);
 }
 catch (Exception $e)
 {

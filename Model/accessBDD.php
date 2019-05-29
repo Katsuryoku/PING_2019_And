@@ -1,17 +1,16 @@
 <?php
 // retourne la réponse de la base de donnée à un access par id sur une base
 function accessBDD($id,$base,$cond = "",$limit = 1,$fetch= TRUE){
-	private $host = 'localhost';
-	private $dbname = 'andrice';
-	private $ndc = 'root';
-	private $password = '';
-	private $bdd = new PDO($host);
+	$host = 'localhost';
+	$dbname = 'andrice';
+	$ndc = 'root';
+	$password = '';
 /**
 * Connexion à la base de donnée
 **/
 try
 {
-	$bdd = new PDO('mysql:'.$host.'=localhost;dbname='.$dbname.';charset=utf8', $ndc, $password);
+	$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $ndc, $password);
 }
 catch (Exception $e)
 {
@@ -65,7 +64,7 @@ function insertType($id,$name,$desc){
 	**/
 	try
 	{
-		$bdd = new PDO('mysql:'.$host.'=localhost;dbname='.$dbname.';charset=utf8', $ndc, $password);
+		$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $ndc, $password);
 	}
 	catch (Exception $e)
 	{
@@ -84,7 +83,7 @@ function updateStatu($base,$attr){
 	$password = '';
 	try
 	{
-		$bdd = new PDO('mysql:'.$host.'=localhost;dbname='.$dbname.';charset=utf8', $ndc, $password);
+		$bdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $ndc, $password);
 	}
 	catch (Exception $e)
 	{

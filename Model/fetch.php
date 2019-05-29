@@ -10,8 +10,6 @@ if($_POST["view"] != '')
 $query = "SELECT * FROM typedemande ORDER BY idtype DESC LIMIT 5";
 $result = mysqli_query($con, $query);
 $output = '';
-$querycount = "SELECT COUNT(*) FROM typedemande ORDER BY idtype DESC LIMIT 5";
-$countr = mysqli_query($con, $query);
 if(mysqli_num_rows($result)>0)
 {
 while($row = mysqli_fetch_array($result))
