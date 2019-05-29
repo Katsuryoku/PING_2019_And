@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="css.css">
+        <title>Demande RCR</title>
+		<meta charset="utf-8">
+		<title>Test</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootsrap.min.css">
+		<link href="daterangepicker.css" rel="stylesheet">
+		
+	
+    <body>
+		<button onclick="myFunction()">Demande RCR</button>
+		<div id="myDIV">
+			<div class="container mt-5 mb-5" style="width: 400px">
+			<input type="text" id="picker" class="form-control">
+			</div>
+	
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+			<script src="https://stackpath.bootsrapcdn.com/bootstrap/4.3.1/js/bootsrap.min.js"></script>
+			<script src="moment.min.js"></script>
+			<script src="daterangepicker.js"></script>
+			<script>
+				$('#picker').daterangepicker({
+				timePicker: true,
+				startDate: moment().startOf('hour'),
+				endDate: moment().startOf('hour').add(32, 'hour'),
+				locale: {
+				format: 'hh:mm M/DD A'
+				}
+				});
+			</script>
+
+		</div>
+		<script>
+			function myFunction() {
+				var x = document.getElementById("myDIV");
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
+
+			
+
+    </body>
+	
+</html>
