@@ -88,12 +88,14 @@ function clickMotifAbsence(){
 		
 	}
 	if(value==='2'){
-		let typeDeces = document.getElementById("mariage");
-		typeDeces.style.display="block";
+		let typeMariage = document.getElementById("mariage");
+		typeMariage.style.display="block";
 	}
 	else{
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="none";	
+		let typeMariage = document.getElementById("mariage");
+		typeMariage.style.display="block";
 	}
 	
 }

@@ -80,7 +80,7 @@
 										<option value="7">Congé enfant malade</option>
 
 									</select><br><br>
-									<input type="submit" class="btn btn-info" value="Demander" onclick="clickMotifAbsence(),document.getElementById('fDeces').scrollIntoView();"/>
+									<input type="submit" class="btn btn-info" value="Demander" onclick="clickMotifAbsence(),document.getElementById('ancre2eChoix').scrollIntoView();"/>
 
 								</fieldset>
 							</form>
@@ -174,7 +174,7 @@
 				</div>
 			</div>
 
-			<div class="row mt-3">
+			<div class="row mt-3" id="ancre2eChoix">
 				<div class="col-md-8 col-lg-5 offset-lg-2">
 					<div  id="deces" class="card text-center">
 						
