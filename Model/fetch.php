@@ -11,17 +11,21 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = ''){
   if(isset($post_view)){
     if($post_view != '')
     {
+      // Cas RH
       if ($idmana == ''){
-       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0";
+       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Valide =0";
      }else{
-       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND idRespHier = ".$idmana;
+        // Cas Manager
+       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Prevalide =0 AND idRespHier = ".$idmana;
      }
      mysqli_query($con, $update_query); 
    }
+   // Cas RH
    if ($idmana == ''){
-    $query = "SELECT * FROM ".$bdd." ORDER BY ".$idorder." DESC LIMIT 5";
+    $query = "SELECT * FROM ".$bdd." WHERE AND Valide =0 ORDER BY ".$idorder." DESC LIMIT 5";
   }else{
-    $query = "SELECT * FROM ".$bdd." WHERE idRespHier = ".$idmana." ORDER BY ".$idorder." DESC LIMIT 5";
+    // cas Manager
+    $query = "SELECT * FROM ".$bdd." WHERE idRespHier = ".$idmana." AND Prevalide =0 ORDER BY ".$idorder." DESC LIMIT 5";
   }
   $result = mysqli_query($con, $query);
   $output = '';
@@ -55,9 +59,9 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = ''){
     $output .= '<li><a href="#" class="text-bold text-italic">No Noti Found</a></li>';
   }
   if ($idmana == ''){
-    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0";
+    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND Valide =0";
   }else{
-    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND idRespHier = ".$idmana;
+    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND Prevalide =0 AND idRespHier = ".$idmana;
   }
   $result_query = mysqli_query($con, $status_query);
   $count = mysqli_num_rows($result_query);
