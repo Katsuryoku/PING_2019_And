@@ -4,6 +4,7 @@ $dbname = 'andrice';
 $ndc = 'root';
 $password = '';
 $con = mysqli_connect($host, $ndc, "", $dbname);
+$webView = "manager";
 function getQueryByID($id,$base,$limit = 1){
 	switch ($base){
 		case "SOLDE":

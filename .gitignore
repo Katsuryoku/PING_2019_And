@@ -11,3 +11,5 @@ Data/ibtmp1
 Data/ib_buffer_pool
 
 *.pid
+Data/ibdata1
+Data/ibtmp1

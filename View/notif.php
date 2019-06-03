@@ -92,7 +92,7 @@ $(document).ready(function(){
 function load_unseen_notification(view = '')
 {
  $.ajax({
-  url:"../Model/fetch.php",
+  url:"../Control/fetchControl.php",
   method:"POST",
   data:{view:view},
   dataType:"json",
