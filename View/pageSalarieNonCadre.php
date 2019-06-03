@@ -9,6 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="pageSalarieNonCadre.css" />
 	
 </head>
@@ -26,25 +27,33 @@
 
 	?>
 	
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark"><ul class="navbar-nav"><li><h2>GESTION DES CONGES</h2></li></ul>
-	</nav>
-
-	<div class="container" >
-		
-
-
-		<h2>Mes actions</h2>
-
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<label>Demandes en cours</label>
-			</li>
-			<li class="nav-item">
-				<label>Historique</label>
-			</li>
-
-		</ul>
-
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="#">GESTION DES CONGES</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <li class="nav-item">
+      <a class="nav-item nav-link active" href="pageSalarieNonCadre.php">GESTION DES CONGES <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-item nav-link" href="demandes.php">Demandes en cours</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-item nav-link" href="historique.php">Historique</a>
+      </li>
+      <li class="nav-item dropdown navbar-right">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="label label-pill label-danger count" style="border-radius:10px;"></span>
+          <span class="far fa-bell" style="font-size:18px;"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        </div>
+      </li>
+    </div>
+  </div>
+</nav>
 
 		
 		<div class="offset-lg-2 col-lg-11">
