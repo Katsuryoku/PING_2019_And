@@ -1,9 +1,7 @@
 <?php
+include("accessBDD.php");
 if(isset($_POST["id"]))
 {
-//include("accessBDD.php");
-
-$con = mysqli_connect("localhost:3306", "root", "", "andrice");
 $id = $_POST["id"];
 $name = $_POST["name"];
 $desc = $_POST["desc"];
