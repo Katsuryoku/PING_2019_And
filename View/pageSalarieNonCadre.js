@@ -1,59 +1,118 @@
 
 
 function showPopUp(){
+	let value = document.getElementById("motifAbsence").value;
+	let ch = "#popup";
+	ch+=value;
 
-	for (i=0; i<document.forms.f.motifAbsence.options.length; i++) { 
-		if (document.forms.f.motifAbsence.options[i].selected ) { 
-			if(i===1) showPopUp1();
-			if(i===2) showPopUp2();
-			if(i===3) showPopUp3();
-			if(i===4) showPopUp4();
-			let typeDeces = document.getElementById("deces");
-			typeDeces.style.display="none";
-  		} 
-	} 
+	endToast();
+	endDeces();
+	endMariage();
+	let popup = document.getElementById("popup"+ value);
+	popup.style.display="block";
+	$(document).ready(function(){
+		$(ch).toast('show');
+	});
+
+
 		
 }
-
-function showPopUp1(){
-	let elements = document.getElementsByClassName("popups");
+function endToast(){
+	let elements = document.getElementsByClassName("toast");
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.display="none";
 	}
-
-	let popup = document.getElementById("popup1");
-	popup.style.display = "block";
-
-}
-function showPopUp2(){
-	let elements = document.getElementsByClassName("popups");
-	for (var i = 0; i < elements.length; i++) {
-		elements[i].style.display="none";
-	}
-	let popup = document.getElementById("popup2")
-	popup.style.display = "block";
-}
-function showPopUp3(){
-	let elements = document.getElementsByClassName("popups");
-	for (var i = 0; i < elements.length; i++) {
-		elements[i].style.display="none";
-	}
-	let popup = document.getElementById("popup3")
-	popup.style.display = "block";
-}
-function showPopUp4(){
-	let elements = document.getElementsByClassName("popups");
-	for (var i = 0; i < elements.length; i++) {
-		elements[i].style.display="none";
-	}
-	let popup = document.getElementById("popup4")
-	popup.style.display = "block";
-
+	
 }
 
-
-function clickDeces(){
-	console.log("ge");
+function endDeces(){
 	let typeDeces = document.getElementById("deces");
-	typeDeces.style.display="block";
+		typeDeces.style.display="none";
 }
+
+function endMariage(){
+	let typeMariage = document.getElementById("mariage");
+		typeMariage.style.display="none";
+}
+
+function infoDeces(){
+	let value = document.getElementById("casDeces").value;
+	if(value==="1"){
+		endToast();
+		let popup = document.getElementById("popupsDeces1");
+		popup.style.display="block";
+		$(document).ready(function(){
+		$("#popupsDeces1").toast('show');
+	});
+	}
+	else{
+			endToast();
+		let popup = document.getElementById("popupsDeces2");
+		popup.style.display="block";
+		$(document).ready(function(){
+		$("#popupsDeces2").toast('show');
+	});
+
+	}
+	
+}
+
+function infoMariage(){
+	let value = document.getElementById("casMariage").value;
+	if(value==="1"){
+		endToast();
+		let popup = document.getElementById("popupsMariage1");
+		popup.style.display="block";
+		$(document).ready(function(){
+		$("#popupsMariage1").toast('show');
+	});
+	}
+	else{
+			endToast();
+		let popup = document.getElementById("popupsMariage2");
+		popup.style.display="block";
+		$(document).ready(function(){
+		$("#popupsMariage2").toast('show');
+	});
+
+	}
+	
+}
+
+function clickMotifAbsence(){
+	let value = document.getElementById("motifAbsence").value;
+	console.log("fe");
+	if(value==='1'){
+		let typeDeces = document.getElementById("deces");
+		typeDeces.style.display="block";
+		
+	}
+	if(value==='2'){
+		let typeMariage = document.getElementById("mariage");
+		typeMariage.style.display="block";
+	}
+	else{
+		let typeDeces = document.getElementById("deces");
+		typeDeces.style.display="none";	
+		let typeMariage = document.getElementById("mariage");
+		typeMariage.style.display="block";
+	}
+	
+}
+
+f
+
+function ajouteOption(genre){
+	console.log("ajouteOption");
+	if(genre==="h"){
+		var select = document.getElementById("motifAbsence");
+		select.options[select.options.length] = new Option("Congé paternité","5");
+	}
+	else{
+		var select = document.getElementById("motifAbsence");
+		select.options[select.options.length] = new Option("Congé maternité","6");
+	}
+}
+
+
+
