@@ -1,86 +1,42 @@
-body{
-	background-color: #ADD8E6;
+html{
+	scroll-behavior: smooth;
 }
-
 .vertical-menu {
 	width: 200px; 
 }
 
 .vertical-menu label {
-	background-color: #eee; /* Grey background color */
-	color: black; /* Black text color */
-	display: block; /* Make the links appear below each other */
-	padding: 12px; /* Add some padding */
-	text-decoration: none; /* Remove underline from links */
-}
-
-#div1{
-	border-radius: 0%;
-	/* remove if you don't care about IE8 */
-	width: 250px;
-	padding: 25px;
-	background: #fff;
-	border: 2px solid #00f;
-	color: #00f;
-	text-align: center;
-	font: 32px Arial, sans-serif;
-	margin-right: 35%;
-	margin-left: 35%;
+	display: block; 
+	padding: 12px; 
+	text-decoration: none; 
 }
 
 
 
-p{
-	text-align: center;
+
+.toast-list{
+	position: absolute;
+	right: 10%;
 }
 
-#demandeAbsence{
-	text-align: center;
+
+
+
+.navbar{
+	z-index: 78;
 }
+.nav{
+	z-index: 0;
+}
+
 #deces{
-	text-align: center;
-}
-#CP {
-  	box-sizing: border-box;
-  	width: 80%;
-  	height: 80%;
-	border-radius: 50%;
-	padding : 25% ;
-	background: #fff;
-	border: 2px solid #00f;
-	color: #00f;
-	text-align: left;
-	font: 22px Arial, sans-serif;
-}
-
-input{
-	background-color: #5D6D7E ;
-	color: white;
-	font-family: Impact, "Arial Black", Arial, Verdana, sans-serif;
-	cursor: pointer;
-	border-radius: 10px;
-
-}
-
-#section-1{
-	border:2px solid;
-	margin-top: 5%;
-	margin-left: 35%;
-	margin-right: 35%;
-}
-#section-2{
-
-	border:2px solid;
-	margin-top: 5%;
-	margin-left: 35%;
-	margin-right: 35%;
-}
-
-
-.popups{
 	display: none;
 }
 
-#deces{
+#mariage{
+	display: none;
+}
+
+.popupsDeces{
 	display: none;
 }
