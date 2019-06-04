@@ -12,7 +12,7 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser 
     if($post_view != '')
     {
       if ($idUser != ''){
-       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Valide =1 AND idsalaries = ".$idUser;
+       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL) AND idsalaries = ".$idUser;
 
      }else{
       // Cas RH
@@ -26,7 +26,7 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser 
    mysqli_query($con, $update_query); 
  }
  if ($idUser != ''){
-  $query =  "SELECT * FROM ".$bdd." WHERE Valide =1 AND ".$checkatt."=0 AND idsalaries = ".$idUser." ORDER BY ".$idorder." DESC LIMIT 5" ;
+  $query =  "SELECT * FROM ".$bdd." WHERE (Valide =1 OR  `MotifRefus` IS NOT NULL) AND ".$checkatt."=0 AND idsalaries = ".$idUser."  ORDER BY ".$idorder." DESC LIMIT 5" ;
 
  }else{
    // Cas RH
@@ -44,13 +44,26 @@ if(mysqli_num_rows($result)>0)
   while($row = mysqli_fetch_array($result))
   {
     if ($idUser != ''){
+      if ($row["MotifRefus"] == NULL){
+
       $output .= '
       <li>
-      <a href="../View/pageRH.html">
+      <a href="../View/pageHistoriqueEmploye.html">
       <strong> La demande du '.$row["Date_deb"].' a été validée !</strong><br />
       </a>
       </li>
       ';
+      }else{
+
+      $output .= '
+      <li>
+      <a href="../View/pageHistoriqueEmploye.html">
+      <strong> La demande du '.$row["Date_deb"].' a été refusée !</strong><br />
+      <small><em> Motif : '.$row["MotifRefus"].'</em></small>
+      </a>
+      </li>
+      ';
+      }
     }else{
       if ($idmana == ''){
         $output .= '
@@ -76,10 +89,10 @@ if(mysqli_num_rows($result)>0)
   }
 }
 else{
-  $output .= '<li><a href="#" class="text-bold text-italic">No Noti Found</a></li>';
+  $output .= '<li><a class="text-bold text-italic">No Noti Found</a></li>';
 }
 if ($idUser != ''){
- $status_query =  "SELECT * FROM ".$bdd." WHERE  ".$checkatt."=0 AND Valide =1 AND idsalaries = ".$idUser." ORDER BY ".$idorder." DESC LIMIT 5" ;
+ $status_query =  "SELECT * FROM ".$bdd." WHERE  ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL) AND idsalaries = ".$idUser." ORDER BY ".$idorder." DESC LIMIT 5" ;
 
 }else{
   if ($idmana == ''){

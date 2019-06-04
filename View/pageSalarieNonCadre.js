@@ -15,7 +15,7 @@ function showPopUp(){
 	});
 
 
-		
+
 }
 function endToast(){
 	let elements = document.getElementsByClassName("toast");
@@ -27,12 +27,12 @@ function endToast(){
 
 function endDeces(){
 	let typeDeces = document.getElementById("deces");
-		typeDeces.style.display="none";
+	typeDeces.style.display="none";
 }
 
 function endMariage(){
 	let typeMariage = document.getElementById("mariage");
-		typeMariage.style.display="none";
+	typeMariage.style.display="none";
 }
 
 function infoDeces(){
@@ -42,16 +42,16 @@ function infoDeces(){
 		let popup = document.getElementById("popupsDeces1");
 		popup.style.display="block";
 		$(document).ready(function(){
-		$("#popupsDeces1").toast('show');
-	});
+			$("#popupsDeces1").toast('show');
+		});
 	}
 	else{
-			endToast();
+		endToast();
 		let popup = document.getElementById("popupsDeces2");
 		popup.style.display="block";
 		$(document).ready(function(){
-		$("#popupsDeces2").toast('show');
-	});
+			$("#popupsDeces2").toast('show');
+		});
 
 	}
 	
@@ -64,16 +64,16 @@ function infoMariage(){
 		let popup = document.getElementById("popupsMariage1");
 		popup.style.display="block";
 		$(document).ready(function(){
-		$("#popupsMariage1").toast('show');
-	});
+			$("#popupsMariage1").toast('show');
+		});
 	}
 	else{
-			endToast();
+		endToast();
 		let popup = document.getElementById("popupsMariage2");
 		popup.style.display="block";
 		$(document).ready(function(){
-		$("#popupsMariage2").toast('show');
-	});
+			$("#popupsMariage2").toast('show');
+		});
 
 	}
 	
@@ -113,39 +113,43 @@ function ajouteOption(genre){
 		select.options[select.options.length] = new Option("Congé maternité","6");
 	}
 }
-
+var clickCounter=0;
 $(document).ready(function(){
 // updating the view with notifications using ajax
 function load_unseen_notification(view = '')
 {
- $.ajax({
-  url:"../Control/fetchControlEmployee.php",
-  method:"POST",
-  data:{view:view},
-  dataType:"json",
-  success:function(data)
-  {
-   	console.log("unsee :");
-   	console.log(data.unseen_notification);
-   	console.log("notif :");
-   	console.log(data.notification);
-   $('.dropdown-menu').html(data.notification);
-   if(data.unseen_notification > 0)
-   {
-    $('.count').html(data.unseen_notification);
-   }
-  }
- });
+	$.ajax({
+		url:"../Control/fetchControlEmployee.php",
+		method:"POST",
+		data:{view:view},
+		dataType:"json",
+		success:function(data)
+		{
+			console.log("unsee :");
+			console.log(data.unseen_notification);
+			console.log("notif :");
+			console.log(data.notification);
+			$('.dropdown-menu').html(data.notification);
+			if(data.unseen_notification > 0)
+			{
+				$('.count').html(data.unseen_notification);
+			}
+		}
+	});
 }
 load_unseen_notification();
 // load new notifications
 $(document).on('click', '.dropdown-toggle', function(){
- $('.count').html('');
- load_unseen_notification('yes');
- console.log("yes");
+	$('.count').html('');
+	clickCounter++;
+	if (clickCounter==2) {
+		load_unseen_notification('yes');
+		clickCounter =0;
+		window.alert("Hello");
+	}
 });
 setInterval(function(){
- load_unseen_notification();;
-}, 5000);
+	load_unseen_notification();;
+}, 10000);
 });
 
