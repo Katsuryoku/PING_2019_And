@@ -17,6 +17,7 @@ html{
 .toast-list{
 	position: absolute;
 	right: 10%;
+	display: none;
 }
 
 

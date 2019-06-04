@@ -13,10 +13,15 @@
 	<link rel="stylesheet" href="pageSalarieNonCadre.css" />
 
 	
-	
 
 </head>
 <body>
+	<script type="text/javascript"> //remet la page en haut lors du rafraichissement
+
+		$(document).ready(function(){
+		    $(window).scrollTop(0);
+		});
+	</script>
 
 <?php
 	$db = mysqli_connect('localhost','root','','andrice') or die('Erreur connexion');
@@ -83,7 +88,7 @@
 			</div>
 			
 			
-			<div class="row mt-3" onload="ajouteOption()">
+			<div class="row mt-3">
 				<div class="col-md-8 col-lg-5 offset-lg-2">
 					<div class="card text-center">
 						<div class="card-header">DEMANDE D'ABSENCE</div>
