@@ -10,10 +10,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="pageSalarieNonCadre.css" />
+
 	
+	
+
 </head>
 <body>
-	<?php
+
+<?php
 	$db = mysqli_connect('localhost','root','','andrice') or die('Erreur connexion');
 
 	$querySolde ="SELECT * FROM solde WHERE idsalaries='69'";
@@ -22,12 +26,16 @@
 	$querySalarie = "SELECT * FROM salarie WHERE idsalaries='69'";
 	$resultSalarie= mysqli_query($db,$querySalarie) or die('Erreur query');
 	$rowSalarie =  mysqli_fetch_array($resultSalarie);
-
-
-	?>
 	
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark"><ul class="navbar-nav"><li><h2>GESTION DES CONGES</h2></li></ul>
-	</nav>
+	?>	
+	
+	<?php $genre=$rowSalarie['Sexe']; ?> 
+
+
+
+	
+	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" ><ul class="navbar-nav"><li><h2>GESTION DES CONGES</h2></li></ul></nav>
 
 	<div class="container" >
 		
@@ -55,8 +63,8 @@
 						<div class="card-body">
 
 							<p >Solde actuel : <?php echo $rowSolde['SOLDECPN'];?> jours</p>
-							<p > Solde restant du N-1 : <?php echo $rowSolde['SOLDECPN-1']?> jours</p>
-							<p > Pris en N : <?php echo $rowSolde['PRISCPN']?> jours</p>
+							<p >Solde restant du N-1 : <?php echo $rowSolde['SOLDECPN-1']?> jours</p>
+							<p >Pris en N : <?php echo $rowSolde['PRISCPN']?> jours</p>
 						</div>
 
 
@@ -64,14 +72,16 @@
 				</div>
 
 			</div>
-			<div class="row mt-3">
+			
+			
+			<div class="row mt-3" onload="ajouteOption()">
 				<div class="col-md-8 col-lg-5 offset-lg-2">
 					<div class="card text-center">
 						<div class="card-header">DEMANDE D'ABSENCE</div>
 						<div id="demandeAbsence" class="card-body">
 							<form id="f"  onsubmit="return false">
 								<fieldset>
-									<select name="motifAbsence" id="motifAbsence" size="1" class="form-control" onchange="showPopUp()" onload="ajouteOption(<?php echo $rowSalarie['sexe']?>);">
+									<select name="motifAbsence" id="motifAbsence" size="1" class="form-control" onchange="showPopUp()" >
 										<option value="" disabled selected>--Choisissez un motif d'absence--</option>
 										<option value="1">Décès </option>
 										<option value="2">Mariage</option>
@@ -133,7 +143,7 @@
 								<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
 							</div>
 							<div class="toast-body">
-								congé mat
+								Vous pouvez faire une demande d'au moins 0,5 jour.
 							</div>
 						</div>
 					</div>
@@ -155,7 +165,7 @@
 								<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
 							</div>
 							<div class="toast-body">
-								Vous pouvez faire une demande d'au moins 0,5 jour.
+								Congé maternité
 							</div>
 						</div>
 					</div>
@@ -273,7 +283,19 @@
 
 
 	<?php mysqli_close($db);?>
+<script type="text/javascript">
+var genre='<?PHP echo $genre;?>';
 
+ if(genre==="Homme"){
+		var select = document.getElementById("motifAbsence");
+		select.options[select.options.length] = new Option("Congé paternité","5");
+	}
+	else{
+		var select = document.getElementById("motifAbsence");
+		select.options[select.options.length] = new Option("Congé maternité","6");
+	}
+
+</script>
 
 	<script  src='pageSalarieNonCadre.js'></script>
 

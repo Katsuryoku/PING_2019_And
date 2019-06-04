@@ -81,13 +81,13 @@ function infoMariage(){
 
 function clickMotifAbsence(){
 	let value = document.getElementById("motifAbsence").value;
-	console.log("fe");
+	
 	if(value==='1'){
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="block";
 		
 	}
-	if(value==='2'){
+	else if(value==='2'){
 		let typeMariage = document.getElementById("mariage");
 		typeMariage.style.display="block";
 	}
@@ -95,16 +95,28 @@ function clickMotifAbsence(){
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="none";	
 		let typeMariage = document.getElementById("mariage");
-		typeMariage.style.display="block";
+		typeMariage.style.display="none";
 	}
 	
 }
 
-f
 
-function ajouteOption(genre){
+
+function ajouteOption(){
+
+	var requete = new XMLHttpRequest();
+requete.onload = function() {
+ //La variable à passer est alors contenue dans l'objet response et l'attribut responseText.
+ var variableARecuperee = this.responseText;
+};
+requete.open(get, pageSalarieNonCadre.php, true); //True pour que l'exécution du script continue pendant le chargement, false pour attendre.
+requete.send();
+
+		
+	 var genre = document.getElementById(variableAPasser).value;
+
 	console.log("ajouteOption");
-	if(genre==="h"){
+	if(genre==="Homme"){
 		var select = document.getElementById("motifAbsence");
 		select.options[select.options.length] = new Option("Congé paternité","5");
 	}
