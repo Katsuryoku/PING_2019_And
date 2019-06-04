@@ -113,9 +113,8 @@ function ajouteOption(genre){
 		select.options[select.options.length] = new Option("Congé maternité","6");
 	}
 }
-
+var clickCounter=0;
 $(document).ready(function(){
-var viewed = false;
 // updating the view with notifications using ajax
 function load_unseen_notification(view = '')
 {
@@ -139,33 +138,18 @@ function load_unseen_notification(view = '')
 	});
 }
 load_unseen_notification();
-$(document).on('click', '.navbar', function(){
-	if (viewed == true){
-	$('.count').html('');
-	load_unseen_notification('yes');
-	viewed = false;
-	}
-});
-$(document).on('click','body *', function(){
-	if (viewed == true){
-	$('.count').html('');
-	load_unseen_notification('yes');
-	viewed = false;
-	}
-})
 // load new notifications
 $(document).on('click', '.dropdown-toggle', function(){
-	console.log(viewed);
 	$('.count').html('');
-	if (viewed == true){
+	clickCounter++;
+	if (clickCounter==2) {
 		load_unseen_notification('yes');
-		viewed = false;
-	}else{
-		viewed = true;
-	};
+		clickCounter =0;
+		window.alert("Hello");
+	}
 });
 setInterval(function(){
 	load_unseen_notification();;
-}, 5000);
+}, 10000);
 });
 
