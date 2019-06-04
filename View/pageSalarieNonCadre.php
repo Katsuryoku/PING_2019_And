@@ -26,6 +26,8 @@
 
 
 	?>
+	<div data-include="navbar"></div>
+	<!--
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <a class="navbar-brand" href="#">GESTION DES CONGES</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +36,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <li class="nav-item">
-      <a class="nav-item nav-link active" href="pageSalarieNonCadre.php">GESTION DES CONGES <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " href="pageSalarieNonCadre.php">GESTION DES CONGES </a>
       </li>
       <li class="nav-item">
       <a class="nav-item nav-link" href="demandes.php">Demandes en cours</a>
@@ -53,7 +55,7 @@
     </div>
   </div>
 </nav>
-	
+	-->
 
 
 

@@ -1,4 +1,10 @@
-
+$(function(){
+    var includes = $('[data-include]');
+    jQuery.each(includes, function(){
+      var file = $(this).data('include') + '.php';
+      $(this).load(file);
+    });
+  });
 
 function showPopUp(){
 	let value = document.getElementById("motifAbsence").value;
@@ -115,6 +121,12 @@ function ajouteOption(genre){
 }
 
 $(document).ready(function(){
+	// get current URL path and assign 'active' class
+	var pathname = window.location.pathname;
+	pathname = pathname.substr(20);
+	console.log(pathname);
+	$('.navbar-nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+	$('.navbar-nav > li > a[href="'+pathname+'"]').append("<span class=\"sr-only\">(current)</span>");
 var viewed = false;
 // updating the view with notifications using ajax
 function load_unseen_notification(view = '')
