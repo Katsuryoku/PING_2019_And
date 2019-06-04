@@ -11,9 +11,10 @@
             $Motif = $_POST["Motif"];
             
             $query = 'UPDATE demande SET MotifRefus = "'.$Motif.'" WHERE iddemande = '.$id;
-            var_dump($query);
-            var_dump($x);
+            //var_dump($query);
+            //var_dump($x);
             mysqli_query($con, $query);
+            echo "<script> window.close();</script>";
             
         }   
         else

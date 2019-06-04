@@ -1,7 +1,7 @@
 <?php
   include('connect.php');
     if(isset($_GET)){
-      $query = "SELECT * FROM demande WHERE Prevalide = 1 AND Valide = 0";
+      $query = "SELECT * FROM demande WHERE Prevalide = 1 AND Valide = 0 AND MotifRefus is Null";
       $result = mysqli_query($con, $query);
       $output = '';
       while($row = mysqli_fetch_array($result))

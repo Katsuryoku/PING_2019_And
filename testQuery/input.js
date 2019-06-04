@@ -41,21 +41,6 @@ function Accept(id){
 function Refuse(id){
 	var Motif = "sdsfsd";
 	openPopUpWindow(id);
-	console.log();
-	/*$.ajax({
-			    url:"insert.php",
-			    type : "POST",
-			    data : {"choice" : "Refuse", 'id' : id},
-			    dataType:'json',
-			    success:function(data)
-			    {
-			    	console.log("Refused");
-			    },
-				error: function(error)
-				{
-            		console.log(error);
-        		}
-		     });*/
 }
 function openPopUpWindow(targetField){
         var w = window.open('Motif.html','_blank','width=400,height=400,scrollbars=1');
@@ -63,10 +48,6 @@ function openPopUpWindow(targetField){
         w.targetField = targetField;
         w.focus();
     }
-
-function setMotif(targetField, returnValue){
-        targetField = returnValue;
-        window.focus();
-    }
+;
 
 
