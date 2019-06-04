@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 			console.log('begin');
 
@@ -7,7 +8,7 @@ $(document).ready(function() {
 			    dataType:'json',
 			    success:function(data)
 			    {
-			    	console.log(data);
+			    	//console.log(data);
 			      	var event_data = data.demande;
 		            $("#Demandes").append(event_data);
 			    },
@@ -18,3 +19,54 @@ $(document).ready(function() {
         		}
 		     })
 		    });
+
+function Accept(id){
+	$.ajax({
+			    url: "insert.php",
+			    type : "POST",
+			    data : {"choice" : "Accept", "id" : id} ,
+			    dataType:'json',
+			    success:function(data)
+			    {
+			    	console.log(data);
+			    	console.log("Accepted");
+			    },
+				error: function(error)
+				{
+            		console.log(error);
+        		}
+		     });
+}
+
+function Refuse(id){
+	var Motif = "sdsfsd";
+	openPopUpWindow(id);
+	console.log();
+	/*$.ajax({
+			    url:"insert.php",
+			    type : "POST",
+			    data : {"choice" : "Refuse", 'id' : id},
+			    dataType:'json',
+			    success:function(data)
+			    {
+			    	console.log("Refused");
+			    },
+				error: function(error)
+				{
+            		console.log(error);
+        		}
+		     });*/
+}
+function openPopUpWindow(targetField){
+        var w = window.open('Motif.html','_blank','width=400,height=400,scrollbars=1');
+        // pass the targetField to the pop up window
+        w.targetField = targetField;
+        w.focus();
+    }
+
+function setMotif(targetField, returnValue){
+        targetField = returnValue;
+        window.focus();
+    }
+
+

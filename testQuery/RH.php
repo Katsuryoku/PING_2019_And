@@ -13,12 +13,12 @@
 			<th>Manager</th>
 			<th>Date</th>
 			<th>Nb Jours</th>
+			<th>Accept/Refuse</th>
 			</tr>
 		</table>
 		
 	</div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 	<script type="text/javascript"  src="input.js"></script>
-	
 </body>
 </html>
