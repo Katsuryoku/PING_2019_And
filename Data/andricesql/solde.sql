@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 28 mai 2019 à 05:46
+-- Généré le :  mer. 05 juin 2019 à 07:30
 -- Version du serveur :  5.7.21
--- Version de PHP :  5.6.35
+-- Version de PHP :  7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,9 +48,7 @@ CREATE TABLE IF NOT EXISTS `solde` (
 --
 
 INSERT INTO `solde` (`idsalaries`, `ACQUISCPN-1`, `PRISCPN-1`, `SOLDECPN-1`, `ACQUISCPN`, `PRISCPN`, `SOLDECPN`, `ACQUISJRRCR`, `PRISJRRCR`, `SOLDEJRRCR`) VALUES
-(15, 25, 25, 0, 20.83, 15, 5.83, 7.59, 0, 7.59),
-(46, 15, 15, 0, 10, 0, 10, 0, 0, 0),
-(55, 10, 0, 10, 10, 0, 10, 0, 0, 0);
+(15, 25, 25, 0, 20.82, 9, 11.82, 4.37, 0, 4.37);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
