@@ -14,31 +14,31 @@
 </head>
 
 <body>
-	<div class="container-fluid" style="background-color:navy;color:white;text-align:center;">
+	<div class="container-fluid" style="background-color:navy;color:white;text-align:center;width:100%;">
 		<br>
 		<h1>HISTORIQUE DES DEMANDES DE CONGÉS</h1>
 		<br>
 	</div>
-	<div class="container-fluid">
+	<div class="container-fluid" >
 		<br>
 		<br>
-		<div class="row">
-			<div class="col-xl-12 col-lg-12" style="padding:5;">
+		<div class="row" style='width:100%;'>
+			<div class="col-xl-12 col-lg-12">
 				<table class="table table-striped table-hover table-responsive "
 						id = "table" data-search="true"
 						data-filter-control="true" data-search-align="left"
 						date-filter-show-clear="true"
-						data-show-fullscreen="true" style="width:147%;"> 
+						data-show-fullscreen="true" style="width:100%;"> 
 					<thead>
 						<tr>
-							<th data-sortable="true" data-filter-control="select" style="width:10%;">Nom</th>
-							<th data-sortable="true" style="width:10%;">Prenom</th>
-							<th data-sortable="true" style="width:10%;">Date de début</th>
-							<th data-sortable="true" style="width:13%;">Nombre de jours</th>
-							<th data-sortable="true" data-filter-control="select" style="width:10%;">Type</th>
-							<th data-sortable="true" data-filter-control="select" style="width:10%;">Statut</th>
-							<th data-sortable="true" style="width:10%;">Solde CP</th>
-							<th data-sortable="true" style="width:10%;">Solde RCR</th>
+							<th data-sortable="true" data-filter-control="select">Nom</th>
+							<th data-sortable="true">Prenom</th>
+							<th data-sortable="true">Date de début</th>
+							<th data-sortable="true">Nombre de jours</th>
+							<th data-sortable="true" data-filter-control="select">Type</th>
+							<th data-sortable="true" data-filter-control="select">Statut</th>
+							<th data-sortable="true">Solde CP</th>
+							<th data-sortable="true">Solde RCR</th>
 						</tr>
 					</thead>
 					
@@ -53,8 +53,7 @@
 						$query = "SELECT salarie.Nom as Nom,Prenom,DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, MotifRefus, SOLDECPN, SOLDEJRRCR FROM demande JOIN salarie on demande.idsalaries = salarie.idsalaries JOIN solde on demande.idsalaries = solde.idsalaries JOIN typedemande on demande.idtype = typedemande.idtype";
 
 						// on envoie la requête 
-						$result = mysqli_query($db, $query);
-						//$row = mysqli_fetch_array($result); 
+						$result = mysqli_query($db, $query); 
 					?>
 					<tbody id="myTable">	
 					<?php
@@ -88,7 +87,19 @@
 	</div>
 	<script>		
 		$(document).ready(function() {
-		  $('#table').DataTable();
+		  $('#table').DataTable({  
+			"bAutoWidth": false,
+			"aoColumns" : [
+				{ sWidth: '1000px' },
+				{ sWidth: '1000px' },
+				{ sWidth: '1500px' },
+				{ sWidth: '1200px' },
+				{ sWidth: '1000px' },
+				{ sWidth: '1550px' },
+				{ sWidth: '1000px' },
+				{ sWidth: '1000px' }
+			]  
+			});
 		});
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
