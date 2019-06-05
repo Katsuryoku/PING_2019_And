@@ -2,19 +2,18 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<!--<link rel="stylesheet" href="historique_conges.css" />-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+	
 </head>
 
 <body>
-	<header>
-		<img src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/04d041db4a4dfec64d7b500dd0fb2211" width=60 height=40:>
-	</header>
 	<div class="container-fluid" style="background-color:navy;color:white;text-align:center;">
 		<br>
 		<h1>HISTORIQUE DES DEMANDES DE CONGÉS</h1>
@@ -22,9 +21,6 @@
 	</div>
 	<div class="container-fluid">
 		<br>
-		<div class="col-lg-3 col-sm-3">
-			<input class="form-control offset-lg-1" id="myInput" type="text" placeholder="Search..">
-		</div>
 		<br>
 		<div class="row">
 			<div class="col-xl-12 col-lg-12" style="padding:5;">
@@ -32,17 +28,17 @@
 						id = "table" data-search="true"
 						data-filter-control="true" data-search-align="left"
 						date-filter-show-clear="true"
-						data-show-fullscreen="true"> 
+						data-show-fullscreen="true" style="width:147%;"> 
 					<thead>
 						<tr>
-							<th data-field="nom" data-sortable="true"  data-filter-control="select" style="width:10%;">Nom</th>
-							<th data-field="prenom" data-sortable="true" style="width:10%;">Prenom</th>
-							<th data-field="date_deb" data-sortable="true" style="width:10%;">Date de début</th>
-							<th data-field="nbjours" data-sortable="true"style="width:10%;">Nombre de jours</th>
-							<th data-field="type" data-sortable="true" data-filter-control="select" style="width:10%;">Type</th>
-							<th data-field="statut" data-sortable="true" data-filter-control="select" style="width:10%;">Statut</th>
-							<th data-field="soldecp" data-sortable="true" style="width:10%;">Solde CP</th>
-							<th data-field="soldercr" data-sortable="true" style="width:10%;">Solde RCR</th>
+							<th data-sortable="true" data-filter-control="select" style="width:10%;">Nom</th>
+							<th data-sortable="true" style="width:10%;">Prenom</th>
+							<th data-sortable="true" style="width:10%;">Date de début</th>
+							<th data-sortable="true" style="width:13%;">Nombre de jours</th>
+							<th data-sortable="true" data-filter-control="select" style="width:10%;">Type</th>
+							<th data-sortable="true" data-filter-control="select" style="width:10%;">Statut</th>
+							<th data-sortable="true" style="width:10%;">Solde CP</th>
+							<th data-sortable="true" style="width:10%;">Solde RCR</th>
 						</tr>
 					</thead>
 					
@@ -54,9 +50,7 @@
 						 
 
 						// on crée la requete SQL 
-						$query = "SELECT salarie.Nom as Nom,Prenom,DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, SOLDECPN, SOLDEJRRCR FROM demande JOIN salarie on demande.idsalaries = salarie.idsalaries JOIN solde on demande.idsalaries = solde.idsalaries JOIN typedemande on demande.idtype = typedemande.idtype ORDER BY Date_deb DESC";
-						//$query = "SELECT * FROM salarie";
-						//mysqli_query($db, $query) or die('Error querying database.');
+						$query = "SELECT salarie.Nom as Nom,Prenom,DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, MotifRefus, SOLDECPN, SOLDEJRRCR FROM demande JOIN salarie on demande.idsalaries = salarie.idsalaries JOIN solde on demande.idsalaries = solde.idsalaries JOIN typedemande on demande.idtype = typedemande.idtype";
 
 						// on envoie la requête 
 						$result = mysqli_query($db, $query);
@@ -76,7 +70,7 @@
 								<td><?php echo $date_deb->format('d-m-Y'); ?></td>
 								<td><?php echo $row['NbEngage']; ?></td>
 								<td><?php echo $row['Type']; ?></td>
-								<td><?php echo $row['Valide']? 'Validé' : 'Non validé'; ?></td>
+								<td><?php if($row['MotifRefus'] != NULL){echo $row['Valide']? 'Validé' : 'Non validé';}else{echo 'En attente';} ?></td>
 								<td><?php echo $row['SOLDECPN']; ?></td>
 								<td><?php echo $row['SOLDEJRRCR']; ?></td>
 							</tr>
@@ -92,16 +86,14 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function(){
-		  $("#myInput").on("keyup", function() {
-			var value = $(this).val().toLowerCase();
-			$("#myTable tr").filter(function() {
-			  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-			});
-		  });
+	<script>		
+		$(document).ready(function() {
+		  $('#table').DataTable();
 		});
 	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/js/dataTables.bootstrap4.min.js"></script>
 	
 </body>
 
