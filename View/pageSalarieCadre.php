@@ -216,7 +216,7 @@
 		</div>
 
 		<div class="row mt-3" id="ancre2eChoix">
-			<div class="col-md-8 col-lg-5 offset-lg-2">
+			<div class="col-md-8 col-lg-4 offset-lg-2">
 				<div  id="deces" class="card text-center">
 
 					<form id="fDeces" >
