@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 03 juin 2019 à 08:36
+-- Généré le :  mer. 05 juin 2019 à 07:30
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -42,16 +42,19 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `idjustif` int(11) DEFAULT NULL,
   `viewByManager` tinyint(1) NOT NULL DEFAULT '0',
   `viewByRH` tinyint(1) NOT NULL DEFAULT '0',
+  `viewByEmployee` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`iddemande`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `demande`
 --
 
-INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`) VALUES
-(1, 1, 46, 15, '2019-06-05', 4, 1, 0, NULL, NULL, 1, 0),
-(2, 1, 15, 15, '2019-06-14', 4, 1, 0, NULL, NULL, 1, 0);
+INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES
+(1, 1, 46, 20, '2019-06-05', 4, 1, 0, NULL, NULL, 1, 0, 0),
+(2, 1, 15, 15, '2019-06-14', 4, 0, 0, NULL, NULL, 1, 0, 0),
+(3, 15, 64, 15, '2019-06-18', 4, 1, 1, NULL, NULL, 1, 1, 1),
+(4, 4, 64, 15, '2019-06-14', 3, 1, 0, 'Dodo', NULL, 1, 1, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
