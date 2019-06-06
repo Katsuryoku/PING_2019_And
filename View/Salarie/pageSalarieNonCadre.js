@@ -100,24 +100,33 @@ function clickMotifAbsence(){
 
 function calendarFunction() {
 	var x = document.getElementById("myDIV");
+	var y = document.getElementById("myDIVBis");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+		y.style.display = "none";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+function calendarFunctionBis() {
+	var x = document.getElementById("myDIVBis");
+	var y = document.getElementById("myDIV");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+		y.style.display = "none";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+function calendarFunctionTer() {
+	var x = document.getElementById("myDIVTer");
 	if (x.style.display === "none") {
 		x.style.display = "block";
 	} else {
 		x.style.display = "none";
 	}
 }
-$(document).ready(function(){
-	$("#picker").daterangepicker({
-		beforeShowDay: function(date)
-		{	
-			var day = date.getDay();
-			if (day==0 || day==6)
-			{	
-				return [false];
-			}
-			else 
-				return [true];
-		}});
-});
 
 

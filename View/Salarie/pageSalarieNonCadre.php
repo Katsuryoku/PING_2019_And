@@ -6,20 +6,22 @@
 	<title>Gestion des congés</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="pageSalarieNonCadre.css" />
 	<link href="daterangepicker.css" rel="stylesheet">
-	<script src="2nd Calendar/jquery.js"></script>
-	<script src="2nd Calendar/jquery-ui.js"></script>
-	<script src="moment.min.js"></script>
-	<script src="daterangepicker.js"></script>
+	<!-- Server -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="navbar.js"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- Local -->
+	<script src="jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script src="moment.min.js"></script>
+	<script src="daterangepicker.js"></script>
+	<script  src='pageSalarieNonCadre.js'></script>
+	<script  src='navbar.js'></script>
 	
 	
 
@@ -58,26 +60,33 @@ $rowSalarie =  mysqli_fetch_array($resultSalarie);
 			<div class="card text-center">
 				<div class="card-header" >CONG&EacuteS PAY&EacuteS</div> 
 				<div class="card-body">
-
 					<p >Solde actuel : <?php echo $rowSolde['SOLDECPN'];?> jours</p>
 					<p >Solde restant du N-1 : <?php echo $rowSolde['SOLDECPN-1']?> jours</p>
 					<p >Pris en N : <?php echo $rowSolde['PRISCPN']?> jours</p>
+					<p ><input type="submit" class="btn btn-info" value="Demande" onclick="calendarFunctionTer()"/></p>
 				</div>
-				<input type="submit" class="btn btn-info" value="Demande" onclick="calendarFunction()"/>
-				<div id="myDIV" style = "display : none">
+			</div>
+			<div id="myDIVTer" style = "display : none">
 					<div ng-controller="MainCtrl" class="row">
-
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h1></h1>
-							<div class="container mt-5 mb-5" style="width: 400px">
-								<input type="text" id="picker" class="form-control">
+							<div class="container mt-5 mb-5" style="width: 235px">
+								<input type="text" id="pickerTer" class="form-control">
 							</div>
+							<script>
+								$(document).ready(function(){
+								$("#pickerTer").daterangepicker({
+								timePicker: true,
+								startDate: moment().startOf('hour'),
+								endDate: moment().startOf('hour').add(32, 'hour'),
+								locale: {
+								format: ' DD/M A'
+								}
+								});
+								});
+							</script>
 						</div>
 					</div>
-				</div>
-
 			</div>
-
 		</div>
 
 	</div>
@@ -305,7 +314,7 @@ $rowSalarie =  mysqli_fetch_array($resultSalarie);
 
 </script>
 
-<script  src='pageSalarieNonCadre.js'></script>
+
 
 
 </body>
