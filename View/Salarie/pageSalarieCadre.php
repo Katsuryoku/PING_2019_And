@@ -59,23 +59,34 @@ $rowSalarie =  mysqli_fetch_array($resultSalarie);
 			<div class="card text-center">
 				<div class="card-header" >CONG&EacuteS PAY&EacuteS</div> 
 				<div class="card-body">
-
 					<p >Solde actuel : <?php echo $rowSolde['SOLDECPN'];?> jours</p>
 					<p >Solde restant du N-1 : <?php echo $rowSolde['SOLDECPN-1']?> jours</p>
 					<p >Pris en N : <?php echo $rowSolde['PRISCPN']?> jours</p>
+					<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="calendarFunction()" onclick="calendarFunctionBis()"/></p>
 				</div>
-				<input type="submit" class="btn btn-info" value="Demande" onclick="calendarFunction()"/>
-				<div id="myDIV" style = "display : none">
+				
+				
+			</div>
+			<div id="myDIV" style = "display : none">
 					<div ng-controller="MainCtrl" class="row">
-
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h1></h1>
-							<div class="container mt-5 mb-5" style="width: 400px">
+							<div class="container mt-5 mb-5" style="width: 235px">
 								<input type="text" id="picker" class="form-control">
 							</div>
+							<script>
+								$(document).ready(function(){
+								$("#picker").daterangepicker({
+								timePicker: true,
+								startDate: moment().startOf('hour'),
+								endDate: moment().startOf('hour').add(32, 'hour'),
+								locale: {
+								format: ' DD/M A'
+								}
+								});
+								});
+							</script>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 
@@ -88,9 +99,32 @@ $rowSalarie =  mysqli_fetch_array($resultSalarie);
 					<p >Solde actuel : <?php echo $rowSolde['SOLDEJRRCR'];?> jours</p>
 					<p >Pris en N : <?php echo $rowSolde['PRISJRRCR']?> jours</p>
 					<p >Acquis en N : <?php echo $rowSolde['ACQUISJRRCR']?> jours</p>
+					<p ><input type="submit" class="btn btn-info" value="Demande RCR" onclick="calendarFunctionBis()" onclick="calendarFunction()"/></p>
 				</div>
+				
 
 
+			</div>
+			<div id="myDIVBis" style = "display : none">
+					<div ng-controller="MainCtrl" class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="container mt-5 mb-5" style="width: 235px">
+								<input type="text" id="pickerBis" class="form-control">
+							</div>
+							<script>
+								$(document).ready(function(){
+								$("#pickerBis").daterangepicker({
+								timePicker: true,
+								startDate: moment().startOf('hour'),
+								endDate: moment().startOf('hour').add(32, 'hour'),
+								locale: {
+								format: ' DD/M A'
+								}
+								});
+								});
+							</script>
+						</div>
+					</div>
 			</div>
 
 
