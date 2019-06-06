@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.js"></script>
+	<script type="text/javascript" src="mw-datepicker-range.js"></script>
+	<script src="controller.js"></script>
+	<script type="text/javascript" src="multipleDatePicker.js"></script>
+
+
+	<style>
+		.uib-day.selected .btn {
+			color        : #fff;
+			background   :#5bc0de none;
+			border-color : #46b8da;
+		}
+		div{
+			outline:none;
+		}
+	</style>
+
+</head>
+
+<body ng-app="app" style="width:90%; margin:auto;">
+
+<div ng-controller="MainCtrl" class="row">
+
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+  		<h1></h1>
+  		<div class="col-md-12">
+  			<p class="input-group">
+  				<input type="text" class="form-control" ng-model="activeDate" mw-multi-select="selectedDates" uib-datepicker-popup="dd/MM/y"  
+				is-open="opened" datepicker-options="options" >
+				
+  				
+				<span class="input-group-btn">
+  						<button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+  					</span>
+					
+					
+  			</p>
+  		</div>
+  		
+	  </div>
+
+		
+	</div>
+	
+</div>
+</body>
+</html>

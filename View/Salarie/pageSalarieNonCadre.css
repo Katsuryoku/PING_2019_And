@@ -1,0 +1,50 @@
+html{
+	scroll-behavior: smooth;
+}
+.vertical-menu {
+	width: 200px; 
+}
+
+.vertical-menu label {
+	display: block; 
+	padding: 12px; 
+	text-decoration: none; 
+}
+
+
+.uib-day.selected .btn {
+			color        : #fff;
+			background   :#5bc0de none;
+			border-color : #46b8da;
+		}
+		div{
+			outline:none;
+		}
+
+.toast-list{
+	position: absolute;
+	right: 10%;
+	display: none;
+}
+
+
+
+
+.navbar{
+	z-index: 78;
+}
+.nav{
+	z-index: 0;
+}
+
+#deces{
+	display: none;
+}
+
+#mariage{
+	display: none;
+}
+
+.popupsDeces{
+	display: none;
+}

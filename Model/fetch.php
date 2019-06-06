@@ -48,7 +48,7 @@ if(mysqli_num_rows($result)>0)
 
       $output .= '
       <li>
-      <a href="../View/pageHistoriqueEmploye.html">
+      <a href="../View/historique.php">
       <strong> La demande du '.$row["Date_deb"].' a été validée !</strong><br />
       </a>
       </li>
@@ -57,7 +57,7 @@ if(mysqli_num_rows($result)>0)
 
       $output .= '
       <li>
-      <a href="../View/pageHistoriqueEmploye.html">
+      <a href="../View/historique.php">
       <strong> La demande du '.$row["Date_deb"].' a été refusée !</strong><br />
       <small><em> Motif : '.$row["MotifRefus"].'</em></small>
       </a>
@@ -68,7 +68,7 @@ if(mysqli_num_rows($result)>0)
       if ($idmana == ''){
         $output .= '
         <li>
-        <a href="../View/pageRH.html">
+        <a href="../RH/demandeCours.php">
         <strong>'.$row["iddemande"].' : '.$row["idsalaries"].'</strong><br />
         <small><em>'.$row["Date_deb"].'</em></small>
         </a>
@@ -77,7 +77,7 @@ if(mysqli_num_rows($result)>0)
       }else{
         $output .= '
         <li>
-        <a href="../View/pageManager.html">
+        <a href="../Manager/demandeCours.php">
         <strong>'.$row["iddemande"].' : '.$row["idsalaries"].'</strong><br />
         <small><em>'.$row["Date_deb"].'</em></small>
         </a>
