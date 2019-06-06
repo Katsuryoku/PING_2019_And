@@ -1,6 +1,9 @@
 <?php
   include('connect.php');
     if(isset($_GET)){
+      $queryView = "UPDATE demande SET viewByRH = 1 WHERE Prevalide = 1 AND viewByRH = 0";
+      mysqli_query($con, $queryView);
+      
       $query = "SELECT * FROM demande WHERE Prevalide = 1 AND Valide = 0 AND MotifRefus is Null";
       $result = mysqli_query($con, $query);
       $output = '';

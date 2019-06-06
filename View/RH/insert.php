@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST["Motif"])) {
-    
+        include "../../../Tests/testMail2/sendMailNotif.php";
 
         if(isset($_POST["Motif"]))
         {
@@ -15,6 +15,7 @@
             //var_dump($x);
             mysqli_query($con, $query);
             echo "<script> window.close();</script>";
+            sendMailNotif($id,"RR");
             
         }   
         else
@@ -28,6 +29,7 @@
 
             var_dump($query);
             mysqli_query($con, $query);
+            sendMailNotif($id,"RA");
         }
         
     
