@@ -54,7 +54,7 @@ $rowSalarie =  mysqli_fetch_array($resultSalarie);
 
 <div class="offset-lg-2 col-lg-11">
 	<div class="row mt-3">
-		<div class="col-md-8 col-lg-3 offset-lg-1">
+		<div class="col-md-8 col-lg-5 offset-lg-2">
 			<div class="card text-center">
 				<div class="card-header" >CONG&EacuteS PAY&EacuteS</div> 
 				<div class="card-body">
@@ -75,25 +75,11 @@ $rowSalarie =  mysqli_fetch_array($resultSalarie);
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-
-		<div class="col-md-8 col-lg-3 offset-lg-0">
-			<div class="card text-center">
-				<div class="card-header" >RCR</div> 
-				<div class="card-body">
-
-					<p >Solde actuel : <?php echo $rowSolde['SOLDEJRRCR'];?> jours</p>
-					<p >Pris en N : <?php echo $rowSolde['PRISJRRCR']?> jours</p>
-					<p >Acquis en N : <?php echo $rowSolde['ACQUISJRRCR']?> jours</p>
-				</div>
-
 
 			</div>
 
-
 		</div>
+
 	</div>
 
 	<div class="row mt-3">

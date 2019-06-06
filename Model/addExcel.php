@@ -118,7 +118,7 @@ try
 	// Suppression du fichier local
 	unlink($Filepath) or die("Couldn't delete file");
 	$_SESSION['varname'] = "WORKED";
-	header( "Location: ../View/addExcel.php" );
+	header( "Location: ../View/RH/addExcel.php" );
 }
 catch (Exception $E)
 {
