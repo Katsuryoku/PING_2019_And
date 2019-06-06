@@ -10,11 +10,6 @@ Data/ibtmp1
 
 Data/ib_buffer_pool
 
-
-Data/andrice/solde\.frm
-
-Data/andrice/solde\.MYD
-
-Data/andrice/solde\.MYI
-
-Data/andrice/typedemande\.MYD
+*.pid
+Data/ibdata1
+Data/ibtmp1

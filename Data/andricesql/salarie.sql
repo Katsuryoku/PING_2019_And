@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 28 mai 2019 à 05:46
+-- Généré le :  mer. 05 juin 2019 à 07:30
 -- Version du serveur :  5.7.21
--- Version de PHP :  5.6.35
+-- Version de PHP :  7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
