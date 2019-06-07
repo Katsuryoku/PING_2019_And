@@ -24,7 +24,7 @@
 		<h1>HISTORIQUE DES DEMANDES DE CONGÉS</h1>
 		<br>
 	</div>
-	<div class="container-fluid" >
+	<div class="container-fluid">
 		<br>
 		<br>
 		<div class="row" style='width:100%;'>
@@ -36,12 +36,12 @@
 				data-show-fullscreen="true" style="width:100%;"> 
 				<thead>
 					<tr>
-						<th data-sortable="true" data-filter-control="select">Nom</th>
+						<th data-sortable="true">Nom</th>
 						<th data-sortable="true">Prenom</th>
 						<th data-sortable="true">Date de début</th>
 						<th data-sortable="true">Nombre de jours</th>
-						<th data-sortable="true" data-filter-control="select">Type</th>
-						<th data-sortable="true" data-filter-control="select">Statut</th>
+						<th data-sortable="true">Type</th>
+						<th data-sortable="true">Statut</th>
 						<th data-sortable="true">Solde CP</th>
 						<th data-sortable="true">Solde RCR</th>
 					</tr>
@@ -64,7 +64,6 @@
 					<?php
 						// on fait une boucle qui va faire un tour pour chaque enregistrement 
 					while ($row = mysqli_fetch_array($result))  
-						//foreach($result as $row)
 					{ 
 						$date_deb = new DateTime($row['Date_deb']); 
 						?>
@@ -74,7 +73,7 @@
 							<td><?php echo $date_deb->format('d-m-Y'); ?></td>
 							<td><?php echo $row['NbEngage']; ?></td>
 							<td><?php echo $row['Type']; ?></td>
-							<td><?php if($row['MotifRefus'] != NULL){echo 'Non validé';}else{echo $row['Valide']? 'Validé' :'En attente';} ?></td>
+							<td><?php if($row['MotifRefus'] != NULL){echo 'Refusée';}else{echo $row['Valide']? 'Validée' :'En attente';} ?></td>
 							<td><?php echo $row['SOLDECPN']; ?></td>
 							<td><?php echo $row['SOLDEJRRCR']; ?></td>
 						</tr>
