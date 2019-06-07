@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Raison du refus ?</title>
+
+	</head>
+	<body>
+		<form action="insert.php" method="post">
+			<input type="hidden" name="id" id ='id'>
+			<input type="text" name="Motif" id="motif">
+			<input id="submit" type="submit"name="bouton" onclick="returnMotif()">
+		</form>
+		<script type="text/javascript">
+		    // return the value to the parent window
+		    
+		    console.log(targetField);
+		    function returnMotif(){
+		    	document.getElementById('id').value = targetField ;
+		        
+		    }
+
+
+		</script>
+	</body>
+</html>
+
