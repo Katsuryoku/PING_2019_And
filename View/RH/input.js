@@ -23,11 +23,11 @@ function Accept(id){
 	$.ajax({
 			    url: "insert.php",
 			    type : "POST",
-			    data : {"choice" : "Accept", "id" : id} ,
+			    data : {"id" : id} ,
 			    dataType:'json',
 			    success:function(data)
 			    {
-			    	console.log(data);
+			    	//console.log(data);
 			    	console.log("Accepted");
 			    },
 				error: function(error)
@@ -38,7 +38,6 @@ function Accept(id){
 }
 
 function Refuse(id){
-	var Motif = "sdsfsd";
 	openPopUpWindow(id);
 }
 function openPopUpWindow(targetField){

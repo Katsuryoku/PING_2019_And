@@ -3,7 +3,7 @@ $(document).ready(function() {
 			console.log('begin');
 			var id = "64" // A CHANGER AVEC LE LOGIN
 		    $.ajax({
-			    url:"../../../Tests/TestQuerySalarie/fetch.php",
+			    url:"../../Tests/testQuerySalarie/fetch.php",
 			    type : 'get',
 			    data : {'id' : id},
 			    dataType:'json',
@@ -27,7 +27,7 @@ function Modify(id){
 	var Dates = "2019-06-25";
 	var NbJours = 30;
 	$.ajax({
-			    url: "../../../testQuerySalarie/editDemande.php",
+			    url: "../../Tests/testQuerySalarie/editDemande.php",
 			    type : "POST",
 			    data : {"id" : id, "Date" : Dates, "NbJours" : NbJours} ,
 			    dataType:'json',
@@ -46,7 +46,7 @@ function Modify(id){
 function Delete(id){
 	
 	$.ajax({
-			    url: "../../../testQuerySalarie/editDemande.php",
+			    url: "../../Tests/testQuerySalarie/editDemande.php",
 			    type : "POST",
 			    data : {"id" : id} ,
 			    dataType:'json',

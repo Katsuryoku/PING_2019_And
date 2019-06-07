@@ -28,7 +28,7 @@ function Accept(id){
 			    dataType:'json',
 			    success:function(data)
 			    {
-			    	console.log(data);
+			    	//console.log(data);
 			    	console.log("Accepted");
 			    },
 				error: function(error)
