@@ -42,13 +42,12 @@
 						
 						session_start();
 						
-						//$login = $_SESSION['login'];
+						$login = $_SESSION['login'];
 						
 						// on se connecte à MySQLi 
 						$db = mysqli_connect('localhost','root','','andrice')
 								or die('Error connecting to MySQL server.');  
 						 
-						$login = 'DDI';
 						
 						$query2= "SELECT idsalaries FROM salarie WHERE login = '".$login."'";
 						$result2 = mysqli_query($db, $query2);
