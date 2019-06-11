@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 			console.log('begin');
 			var id = "64" // A CHANGER AVEC LE LOGIN
@@ -62,5 +61,3 @@ function Delete(id){
 		     });
 	}
 ;
-
-

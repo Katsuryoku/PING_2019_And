@@ -10,12 +10,21 @@ session_start();
 	
 	<title>Gestion des congés</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+	<link href="daterangepicker.css" rel="stylesheet">
+	<link rel="stylesheet" href="pageSalarieNonCadre.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- Server -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="pageSalarieNonCadre.css" />
+	<!-- Local -->
+	<script src="moment.min.js"></script>
+	<script src="daterangepicker.js"></script>
+	<script  src='pageSalarieNonCadre.js'></script>
+	<script  src='navbar.js'></script>
 
 	
 
@@ -64,13 +73,8 @@ $query = "SELECT DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typed
 $result = mysqli_query($db, $query);
 
 
+
 ?>	
-
-
-
-
-
-
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -267,7 +271,6 @@ $result = mysqli_query($db, $query);
 
 </script>
 
-<script  src='pageSalarieNonCadre.js'></script>
 
 
 

@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 			console.log('begin');
 
@@ -49,5 +48,3 @@ function openPopUpWindow(targetField){
         w.focus();
     }
 ;
-
-
