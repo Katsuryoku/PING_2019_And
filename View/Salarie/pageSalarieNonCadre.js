@@ -107,3 +107,16 @@ function GetDescriptif2(ty){
 		}
     });
 }
+$(document).ready(function(){
+	$("#picker").daterangepicker({
+		beforeShowDay: function(date)
+		{	
+			var day = date.getDay();
+			if (day==0 || day==6)
+			{	
+				return [false];
+			}
+			else 
+				return [true];
+		}});
+});
