@@ -3,7 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
+<<<<<<< HEAD
+<<<<<<< pagesSalaries
+-- Généré le :  mer. 05 juin 2019 à 07:37
+=======
 -- Généré le :  mer. 05 juin 2019 à 07:31
+>>>>>>> sql
+=======
+-- Généré le :  mer. 05 juin 2019 à 07:31
+>>>>>>> master
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -41,6 +49,22 @@ CREATE TABLE IF NOT EXISTS `typedemande` (
 -- Déchargement des données de la table `typedemande`
 --
 
+<<<<<<< HEAD
+<<<<<<< pagesSalaries
+INSERT INTO `typedemande` (`idtype`, `Nom`, `Descriptif`) VALUES
+(2, '2', '2'),
+(1, '1', '1'),
+(141, '1', '1441'),
+(3, '3', '3'),
+(4, '4', '4'),
+(5, '5', '5'),
+(6, '6', '6'),
+(14, '2', '2'),
+(10, '21', '12'),
+(16, '1', '25');
+=======
+=======
+>>>>>>> master
 INSERT INTO `typedemande` (`idtype`, `Nom`, `Descriptif`, `status`) VALUES
 (2, '2', '2', 1),
 (1, '1', '1', 1),
@@ -52,6 +76,10 @@ INSERT INTO `typedemande` (`idtype`, `Nom`, `Descriptif`, `status`) VALUES
 (14, '2', '2', 1),
 (10, '21', '12', 1),
 (16, '1', '25', 1);
+<<<<<<< HEAD
+>>>>>>> sql
+=======
+>>>>>>> master
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

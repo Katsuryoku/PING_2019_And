@@ -1,15 +1,21 @@
+$(function(){
+    var includes = $('[data-include]');
+    jQuery.each(includes, function(){
+      var file = $(this).data('include') + '.php';
+      $(this).load(file);
+    });
+  });
+
 function showPopUp(){
 	let value = document.getElementById("motifAbsence").value;
-	let ch = "#popup";
-	ch+=value;
-
+	GetDescriptif('3'+value);
 	endToast();
 	endDeces();
 	endMariage();
-	let popup = document.getElementById("popup"+ value);
+	let popup = document.getElementById("popup");
 	popup.style.display="block";
 	$(document).ready(function(){
-		$(ch).toast('show');
+		$("#popup").toast('show');
 	});
 
 
@@ -33,59 +39,30 @@ function endMariage(){
 	typeMariage.style.display="none";
 }
 
-function infoDeces(){
+function infoDecesMariage(){
 	let value = document.getElementById("casDeces").value;
-	if(value==="1"){
-		endToast();
-		let popup = document.getElementById("popupsDeces1");
-		popup.style.display="block";
-		$(document).ready(function(){
-			$("#popupsDeces1").toast('show');
+	let idtype="40"+value;
+	GetDescriptif2(idtype);
+	endToast();
+	let popup = document.getElementById("popupsDeces");
+	popup.style.display="block";
+	$(document).ready(function(){
+			$("#popupsDeces").toast('show');
 		});
-	}
-	else{
-		endToast();
-		let popup = document.getElementById("popupsDeces2");
-		popup.style.display="block";
-		$(document).ready(function(){
-			$("#popupsDeces2").toast('show');
-		});
-
-	}
 	
 }
 
-function infoMariage(){
-	let value = document.getElementById("casMariage").value;
-	if(value==="1"){
-		endToast();
-		let popup = document.getElementById("popupsMariage1");
-		popup.style.display="block";
-		$(document).ready(function(){
-			$("#popupsMariage1").toast('show');
-		});
-	}
-	else{
-		endToast();
-		let popup = document.getElementById("popupsMariage2");
-		popup.style.display="block";
-		$(document).ready(function(){
-			$("#popupsMariage2").toast('show');
-		});
 
-	}
-	
-}
 
 function clickMotifAbsence(){
 	let value = document.getElementById("motifAbsence").value;
 	
-	if(value==='1'){
+	if(value==='01'){
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="block";
 		
 	}
-	else if(value==='2'){
+	else if(value==='02'){
 		let typeMariage = document.getElementById("mariage");
 		typeMariage.style.display="block";
 	}
@@ -98,26 +75,35 @@ function clickMotifAbsence(){
 	
 }
 
-function calendarFunction() {
-	var x = document.getElementById("myDIV");
-	if (x.style.display === "none") {
-		x.style.display = "block";
-	} else {
-		x.style.display = "none";
-	}
+
+
+
+function GetDescriptif(ty){
+
+	$.ajax({
+		url:"TraitementTypeAbsence.php",
+		type:"get",
+		data: 'type=' + ty,
+		dataType: 'text',
+		success: function(descriptif) {  
+
+			document.getElementById('descr1').innerHTML=descriptif;
+
+		}
+    });
 }
-$(document).ready(function(){
-	$("#picker").daterangepicker({
-		beforeShowDay: function(date)
-		{	
-			var day = date.getDay();
-			if (day==0 || day==6)
-			{	
-				return [false];
-			}
-			else 
-				return [true];
-		}});
-});
 
+function GetDescriptif2(ty){
 
+	$.ajax({
+		url:"TraitementTypeAbsence.php",
+		type:"get",
+		data: 'type=' + ty,
+		dataType: 'text',
+		success: function(descriptif) {  
+
+			document.getElementById('descr2').innerHTML=descriptif;
+
+		}
+    });
+}
