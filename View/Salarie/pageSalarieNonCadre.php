@@ -200,6 +200,7 @@ $stmt2->close();
 
 </script>
 
+<script  src='pageSalarieNonCadre.js'></script>
 
 
 
