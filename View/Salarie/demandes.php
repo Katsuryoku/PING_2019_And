@@ -17,6 +17,7 @@
 	<div id="Test">
 		<table id="Demandes" class="table table-responsive table-hover table-bordered">
 			<tr>
+			<th>Demande</th>
 			<th>Type</th>
 			<th>Nom</th>
 			<th>Manager</th>

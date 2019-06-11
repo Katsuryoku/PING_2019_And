@@ -3,7 +3,7 @@ $(document).ready(function() {
 			console.log('begin');
 
 		    $.ajax({
-			    url:"fetch.php",
+			    url:"../../Model/fetchManager.php",
 			    type : 'get',
 			    dataType:'json',
 			    success:function(data)
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function Accept(id){
 	$.ajax({
-			    url: "insert.php",
+			    url: "../../Model/insertManager.php",
 			    type : "POST",
 			    data : {"id" : id} ,
 			    dataType:'json',
@@ -39,7 +39,6 @@ function Accept(id){
 }
 
 function Refuse(id){
-	var Motif = "sdsfsd";
 	openPopUpWindow(id);
 	}
 

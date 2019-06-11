@@ -2,7 +2,7 @@
 $(document).ready(function() {
 			console.log('begin');
 			$.ajax({
-			    url:"fetch.php",
+			    url:"../../Model/fetchRH.php",
 			    type : 'get',
 			    dataType:'json',
 			    success:function(data)
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 function Accept(id){
 	$.ajax({
-			    url: "insert.php",
+			    url: "../../Model/insertRH.php",
 			    type : "POST",
 			    data : {"id" : id} ,
 			    dataType:'json',
