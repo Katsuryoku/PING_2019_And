@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <li class="nav-item">
-      <a class="nav-item nav-link " href="../pageLogin.html">HOME</a>
+      <a class="nav-item nav-link " href="../pageLogin.php">HOME</a>
       </li>
       <li class="nav-item">
       <a class="nav-item nav-link " href="pageSalarieNonCadre.php">DashBoard</a>
