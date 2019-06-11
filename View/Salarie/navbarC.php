@@ -15,7 +15,7 @@
       <a class="nav-item nav-link" href="demandes.php">Demandes en cours</a>
       </li>
       <li class="nav-item">
-      <a class="nav-item nav-link" href="historique.php">Historique</a>
+      <a class="nav-item nav-link" href="HistoriquePourEmploye.php">Historique</a>
       </li>
       <li class="nav-item dropdown navbar-right">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

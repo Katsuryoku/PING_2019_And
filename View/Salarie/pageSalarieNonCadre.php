@@ -76,34 +76,7 @@ $result = mysqli_query($db, $query);
 
 ?>	
 
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-	<a class="navbar-brand" href="#">GESTION DES CONGES</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		<div class="navbar-nav">
-			<li class="nav-item">
-				<a class="nav-item nav-link active" href="pageSalarieNonCadre.php">GESTION DES CONGES <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-item nav-link" href="demandes.php">Demandes en cours</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-item nav-link" href="historique.php">Historique</a>
-			</li>
-			<li class="nav-item dropdown navbar-right">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="label label-pill label-danger count" style="border-radius:10px;"></span>
-					<span class="far fa-bell" style="font-size:18px;"></span>
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				</div>
-			</li>
-		</div>
-	</div>
-</nav>
+<div data-include="navbar"></div>
 
 <div class="sidenav" style="height:100%;width:300px;position: fixed;background-color:lightsteelblue;">
 	<div class="container-fluid">
@@ -122,7 +95,7 @@ $result = mysqli_query($db, $query);
 			?>
 			<?php if($status == 'Refusée') {?><tr style="background-color:red;">
 			<?php }elseif ($status =='Validée'){ ?><tr style="background-color:lime;">
-			<?php }elseif ($status =='En attente'){ ?><tr style="background-color:orange;"> <?php }?>
+			<?php }elseif ($status =='En attente'){ ?><tr  onclick ="demandes.php" style="background-color:orange;"> <?php }?>
 				<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y');?></td>
 			</tr>
 			<?php 
