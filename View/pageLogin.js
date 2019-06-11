@@ -16,6 +16,10 @@ function EnvoiePost(loginS,mdp){
 	if(loginS==="SF"){
 		document.location.href='Salarie/pageSalarieNonCadre.php';
 	}
-	
-	
+	if(loginS==="MANA"){
+		document.location.href='Manager/pageManager.php';
+	}
+	if(loginS==="DDI"){
+		document.location.href='RH/pageRH.php';
+	}
 }
