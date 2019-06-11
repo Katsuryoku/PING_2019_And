@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('access.php');
 /* Fonction qui fetch la base de donnée
 * @InPut : $bdd = base de donnée voulu
@@ -8,6 +9,8 @@ include('access.php');
 *          $idmana : id du manager si c'est un accès manager
 */
 function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser = ''){
+  $log= $_SESSION['login'];
+
   if(isset($post_view)){
     if($post_view != '')
     {
@@ -17,15 +20,22 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser 
      }else{
       // Cas RH
       if ($idmana == ''){
+
        $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Valide =0";
      }else{
         // Cas Manager
+      $stmt = $db->prepare("SELECT idsalaries FROM salarie WHERE login=?");
+      $stmt->bind_param("s", $log);
+      $stmt->execute();
+      $stmt->bind_result($idmana);
+      $stmt->fetch();
+      $stmt->close();
       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) AND idRespHier = ".$idmana;
-     }
-   }
-   mysqli_query($con, $update_query); 
- }
- if ($idUser != ''){
+    }
+  }
+  mysqli_query($con, $update_query); 
+}
+if ($idUser != ''){
   $query =  "SELECT * FROM ".$bdd." WHERE (Valide =1 OR  `MotifRefus` IS NOT NULL) AND ".$checkatt."=0 AND idsalaries = ".$idUser."  ORDER BY ".$idorder." DESC LIMIT 5" ;
 
 }else{

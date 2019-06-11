@@ -11,11 +11,15 @@ function EnvoiePost(loginS,mdp){
 		
 	});
 	if(loginS==="JBR"){
-		document.location.href='http://localhost/projet%20ingenierie/PING_2019_And/View/Salarie/pageSalarieCadre.php';	
+		document.location.href='Salarie/pageSalarieCadre.php';	
 	}
 	if(loginS==="SF"){
-		document.location.href='http://localhost/projet%20ingenierie/PING_2019_And/View/Salarie/pageSalarieNonCadre.php';
+		document.location.href='Salarie/pageSalarieNonCadre.php';
 	}
-	
-	
+	if(loginS==="MANA"){
+		document.location.href='Manager/pageManager.php';
+	}
+	if(loginS==="RRH"){
+		document.location.href='RH/pageRH.php';
+	}
 }
