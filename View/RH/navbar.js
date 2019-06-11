@@ -5,7 +5,7 @@ $(function(){
 		$(this).load(file);
 	});
 });
-	$(document).ready(function(){
+$(document).ready(function(){
 	// get current URL path and assign 'active' class
 	var pathname = window.location.pathname;
 	pathname = pathname.substr(23);

@@ -7,12 +7,12 @@ $(function(){
 });
 $(document).ready(function(){
 
-	$('.navbar-nav > li > a[href="'+pathname+'"]').parent().addClass('active');
-	$('.navbar-nav > li > a[href="'+pathname+'"]').append("<span class=\"sr-only\">(current)</span>");
-
 	// get current URL path and assign 'active' class
 	var pathname = window.location.pathname;
 	pathname = pathname.substr(20);
+
+	$('.navbar-nav > li > a[href="'+pathname+'"]').parent().addClass('active');
+	$('.navbar-nav > li > a[href="'+pathname+'"]').append("<span class=\"sr-only\">(current)</span>");
 	console.log(pathname);
 	var viewed = false;
 // updating the view with notifications using ajax
