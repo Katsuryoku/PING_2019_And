@@ -53,7 +53,7 @@ if(mysqli_num_rows($result)>0)
 
         $output .= '
         <li>
-        <a href="../View/historique.php">
+        <a href="historique.php">
         <strong> La demande du '.$row["Date_deb"].' a été validée !</strong><br />
         </a>
         </li>
@@ -62,7 +62,7 @@ if(mysqli_num_rows($result)>0)
 
         $output .= '
         <li>
-        <a href="../View/historique.php">
+        <a href="historique.php">
         <strong> La demande du '.$row["Date_deb"].' a été refusée !</strong><br />
         <small><em> Motif : '.$row["MotifRefus"].'</em></small>
         </a>

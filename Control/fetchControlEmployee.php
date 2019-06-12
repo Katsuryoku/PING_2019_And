@@ -1,5 +1,5 @@
 <?php
 include('../Model/fetch.php');
-fetch($_POST["view"],"demande","viewByEmployee","iddemande", $con, '', "64");
+fetch($_POST["view"],"demande","viewByEmployee","iddemande", $con, '', $idsalarie);
 
 ?>
