@@ -1,5 +1,8 @@
 <?php 
-	session_start();
+if(isset($_SESSION)) {
+}else{
+  session_start();
+}
 
 	include "../../Model/connect.php";
 	if (isset($_POST["type"])){

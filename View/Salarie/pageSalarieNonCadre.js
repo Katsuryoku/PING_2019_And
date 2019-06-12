@@ -96,7 +96,8 @@ function sendDate(startDate,endDate,demiDeb,demiFin){
 		    dataType:'json',
 		    succes:function(){
 		    	console.log("Date success");
-		    }
+		    },
+ error: function () { console.log("Date fail"); }
 	     })
 }
 
