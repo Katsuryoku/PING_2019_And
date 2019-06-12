@@ -56,7 +56,7 @@ function infoDecesMariage(){
 
 function clickMotifAbsence(id,date,demi,nb){
 	let value = document.getElementById("motifAbsence").value;
-	
+	console.log(value);
 	if(value==='01'){
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="block";
@@ -71,7 +71,8 @@ function clickMotifAbsence(id,date,demi,nb){
 		typeDeces.style.display="none";	
 		let typeMariage = document.getElementById("mariage");
 		typeMariage.style.display="none";
-		//sendDemande("3" + value,id,date,demi,nb,idjustif);
+		sendType(value);
+
 	}
 	
 	
@@ -153,14 +154,14 @@ function calendarFunction() {
 }
 
 function calendarFunctionBis() {
-	var x = document.getElementById("myDIVBis");
-	//var y = document.getElementById("myDIV");
-	if (x.style.display === "none") {
-		x.style.display = "block";
-		//y.style.display = "none";
-	} else {
-		x.style.display = "none";
-	}
+	// var x = document.getElementById("myDIVBis");
+	// //var y = document.getElementById("myDIV");
+	// if (x.style.display === "none") {
+	// 	x.style.display = "block";
+	// 	//y.style.display = "none";
+	// } else {
+	// 	x.style.display = "none";
+	// }
 }
 
 function calendarFunctionTer() {
