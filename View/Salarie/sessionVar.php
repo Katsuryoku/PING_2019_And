@@ -27,7 +27,7 @@
 		$Date_end = strtotime($end);
 		$deb= new DateTime($deb);
 		$deb = $deb->format("Y-m-d");
-		// var_dump($deb);
+		var_dump($deb);
 		$NbEngage = dateDiff($Date_end,$Date_deb);
 		$NbEngage = (float)$NbEngage["day"];
 		
@@ -53,6 +53,11 @@
 		}
 		elseif($demiDeb!="true" && $demiFin!="true"){
 			$demiJournee = false;
+		}
+		if($demiJournee){
+			$demiJournee=1;
+		}else{
+			$demiJournee=0;
 		}
 		var_dump($demiJournee);
 		var_dump($NbEngage);
