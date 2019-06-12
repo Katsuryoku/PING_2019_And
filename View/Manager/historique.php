@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Historique RH</title>
+	<title>Historique Manager</title>
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -64,7 +64,7 @@
 							<td><?php echo $date_deb->format('d-m-Y'); ?></td>
 							<td><?php echo $row['NbEngage']; ?></td>
 							<td><?php echo $row['Type']; ?></td>
-							<td><?php if($row['MotifRefus'] != NULL){echo 'Non validé';}else{echo $row['Valide']? 'Validé' :'En attente';} ?></td>
+							<td><?php if($row['MotifRefus'] != NULL ){echo 'Non validé';}else{echo $row['Valide']? 'Validé' :'En attente';} ?></td>
 							<td><?php echo $row['SOLDECPN']; ?></td>
 							<td><?php echo $row['SOLDEJRRCR']; ?></td>
 						</tr>
