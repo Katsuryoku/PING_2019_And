@@ -109,7 +109,7 @@ include('../../Control/controlSal.php');
 									<option value="07">Congé enfant malade</option>
 
 								</select><br><br>
-								<input type="submit" class="btn btn-info" value="Demander" onclick="clickMotifAbsence(value,<?php $_SESSION["login"] ?>,date,demi,nb,idjustif),document.getElementById('ancre2eChoix').scrollIntoView();"/>
+								<input type="submit" class="btn btn-info" value="Demander" onclick="clickMotifAbsence(),document.getElementById('ancre2eChoix').scrollIntoView();"/>
 
 							</fieldset>
 						</form>
