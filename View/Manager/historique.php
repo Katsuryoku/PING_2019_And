@@ -27,7 +27,7 @@
 	<div class="container-fluid" >
 		<br>
 		<br>
-		<div class="row" style='width:100%;'>
+		<div class="row" style='width:100%;padding-left: 20px;'>
 			<div class="col-xl-12 col-lg-12">
 				<table class="table table-striped table-hover table-responsive "
 				id = "table" data-search="true"
@@ -64,7 +64,7 @@
 							<td><?php echo $date_deb->format('d-m-Y'); ?></td>
 							<td><?php echo $row['NbEngage']; ?></td>
 							<td><?php echo $row['Type']; ?></td>
-							<td><?php if($row['MotifRefus'] != NULL ){echo 'Non validé';}else{echo $row['Valide']? 'Validé' :'En attente';} ?></td>
+							<td><?php if($row['MotifRefus'] != NULL ){echo 'Refusée';}else{echo $row['Valide']? 'Validée' :'En attente';} ?></td>
 							<td><?php echo $row['SOLDECPN']; ?></td>
 							<td><?php echo $row['SOLDEJRRCR']; ?></td>
 						</tr>
