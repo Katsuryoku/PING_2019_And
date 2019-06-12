@@ -48,8 +48,8 @@
 				</thead>
 
 				<?php
-				include('../../Control/controlRH.php')
-				?>
+				include('../../Control/controlManager.php');
+				?>	
 				<tbody id="myTable">	
 					<?php
 						// on fait une boucle qui va faire un tour pour chaque enregistrement 
