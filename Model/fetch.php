@@ -24,7 +24,7 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser 
        $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Prevalide =1 AND (Valide =0 OR `MotifRefus` IS NULL)";
      }else{
         // Cas Manager
-      $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) AND idRespHier = ".$idmana;
+      $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND (Valide =1 OR  (`MotifRefus` IS NOT NULL AND Prevalide =1) OR Prevalide =0) AND idRespHier = ".$idmana;
     }
   }
   mysqli_query($con, $update_query); 
@@ -38,7 +38,7 @@ if ($idUser != ''){
   $query = "SELECT * FROM ".$bdd." WHERE Prevalide =1 AND Valide =0 AND `MotifRefus` IS NULL AND ".$checkatt."=0 ORDER BY ".$idorder." DESC LIMIT 5";
 }else{
     // cas Manager
-  $query = "SELECT * FROM ".$bdd." WHERE  ".$checkatt."=0 AND idRespHier = ".$idmana." AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) ORDER BY ".$idorder." DESC LIMIT 5";
+  $query = "SELECT * FROM ".$bdd." WHERE  ".$checkatt."=0 AND idRespHier = ".$idmana." AND (Valide =1 OR  (`MotifRefus` IS NOT NULL AND Prevalide =1) OR Prevalide =0) ORDER BY ".$idorder." DESC LIMIT 5";
 }
 }
 $result = mysqli_query($con, $query);
@@ -84,7 +84,7 @@ if(mysqli_num_rows($result)>0)
         if ($row["Valide"] == 1){
           $output .= '
           <li>
-          <a href="../Manager/demandeCours.php">
+          <a href="../Manager/historique.php">
           <strong> La demande du '.$row["Date_deb"].' de '.$row["idsalaries"].' a été validée. </strong><br />
           </a>
           </li>
@@ -101,7 +101,7 @@ if(mysqli_num_rows($result)>0)
           }else{
             $output .= '
             <li>
-            <a href="../Manager/demandeCours.php">
+            <a href="../Manager/historique.php">
             <strong> La demande du '.$row["Date_deb"].' de '.$row["idsalaries"].' a été refusée. </strong><br />
             </a>
             </li>
@@ -127,7 +127,7 @@ if ($idUser != ''){
   if ($idmana == ''){
     $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND Prevalide = 1 AND Valide =0 AND `MotifRefus` IS NULL";
   }else{
-    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) AND idRespHier = ".$idmana;
+    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND (Valide =1 OR  (`MotifRefus` IS NOT NULL AND Prevalide =1) OR Prevalide =0) AND idRespHier = ".$idmana;
   }
 }
 $result_query = mysqli_query($con, $status_query);

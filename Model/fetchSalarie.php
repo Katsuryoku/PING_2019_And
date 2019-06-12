@@ -2,7 +2,7 @@
   include('connect.php');
     if(isset($_GET)){
       $id = $idsalarie;
-      $query = "SELECT * FROM demande WHERE idsalaries =".$id;
+      $query = "SELECT * FROM demande WHERE Valide = 0 AND MotifRefus is Null AND idsalaries =".$id;
       $result = mysqli_query($con, $query);
       $output = '';
       $queryS = "SELECT * FROM salarie WHERE idsalaries =".$id;
