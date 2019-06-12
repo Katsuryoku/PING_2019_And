@@ -41,7 +41,7 @@ session_start();
 include('../../Control/controlSal.php');
 ?>	
 
-<div data-include="navbarC"></div>
+<div data-include="navbar"></div>
 
 
 <div data-include="sideBar"></div>
