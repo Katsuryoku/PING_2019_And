@@ -1,6 +1,6 @@
 $(document).ready(function() {
 			console.log('begin');
-			var id = '';
+			var id = "64" // A CHANGER AVEC LE LOGIN
 		    $.ajax({
 			    url:"../../Model/fetchSalarie.php",
 			    type : 'get',

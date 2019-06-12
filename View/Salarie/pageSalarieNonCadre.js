@@ -78,21 +78,21 @@ function clickMotifAbsence(id,date,demi,nb){
 }
 
 function send() {
-    console.log("Callback has been called!");
-    $('#picker span').html(start.format('DD/M A') + ' - ' + end.format('DD/M A'));
-    start = startDate;
-    end = endDate;   
-    sendDate(start,end);
-    console.log("dates envoyees");
-
+    var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+	demiDeb = document.getElementById("demiJourneeStart").checked;
+    demiFin = document.getElementById("demiJourneeEnd").checked;
+    sendDate(start,end,demiDeb,demiFin);
+    
+    console.log(demiDeb);
    };
 
-function sendDate(startDate,endDate){
+function sendDate(startDate,endDate,demiDeb,demiFin){
 
 	$.ajax({
 		    url: "sessionVar.php",
 		    type : "POST",
-		    data : {"startDate" : startDate, "endDate" : endDate} ,
+		    data : {"startDate" : startDate, "endDate" : endDate,"demiDeb":demiDeb,"demiFin":demiFin} ,
 		    dataType:'json',
 		    succes:function(){
 		    	console.log("Date success");
@@ -101,10 +101,10 @@ function sendDate(startDate,endDate){
 }
 
 
-function sendDemande(type)
+function sendType(type)
 	{
 		$.ajax({
-			    url: "postDemandes.php",
+			    url: "sessionVar.php",
 			    type : "POST",
 			    data : {"type" : type} ,
 			    dataType:'json'
@@ -143,10 +143,10 @@ function GetDescriptif2(ty){
 }
 function calendarFunction() {
 	var x = document.getElementById("myDIV");
-	var y = document.getElementById("myDIVBis");
+	//var y = document.getElementById("myDIVBis");
 	if (x.style.display === "none") {
 		x.style.display = "block";
-		y.style.display = "none";
+		//y.style.display = "none";
 	} else {
 		x.style.display = "none";
 	}
@@ -154,10 +154,10 @@ function calendarFunction() {
 
 function calendarFunctionBis() {
 	var x = document.getElementById("myDIVBis");
-	var y = document.getElementById("myDIV");
+	//var y = document.getElementById("myDIV");
 	if (x.style.display === "none") {
 		x.style.display = "block";
-		y.style.display = "none";
+		//y.style.display = "none";
 	} else {
 		x.style.display = "none";
 	}

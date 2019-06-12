@@ -48,7 +48,17 @@
 				</thead>
 
 				<?php
-				include('../../Control/controlRH.php')
+						// on se connecte à MySQLi 
+				$db = mysqli_connect('localhost','root','','andrice')
+				or die('Error connecting to MySQL server.');  
+
+
+
+						// on crée la requete SQL 
+				$query = "SELECT salarie.Nom as Nom,Prenom,DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, MotifRefus, SOLDECPN, SOLDEJRRCR FROM demande JOIN salarie on demande.idsalaries = salarie.idsalaries JOIN solde on demande.idsalaries = solde.idsalaries JOIN typedemande on demande.idtype = typedemande.idtype";
+
+						// on envoie la requête 
+				$result = mysqli_query($db, $query); 
 				?>
 				<tbody id="myTable">	
 					<?php
@@ -70,6 +80,9 @@
 						</tr>
 						<?php
 					}  
+
+						// on ferme la connexion à mysql 
+					mysqli_close($db);  
 					?>
 				</tbody>
 

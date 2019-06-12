@@ -108,9 +108,23 @@
                 '<div class="drp-calendar right">' +
                     '<div class="calendar-table"></div>' +
                     '<div class="calendar-time"></div>' +
-                '</div>' +
+                '</div>' +  
+                '<div class = "checkboxes">'+                  
+                    '<ul>'+
+                        '<li>'+
+                            '<input type="checkbox" id="demiJourneeStart" name="dJStart">'+
+                            '<label for="demiJourneeStart">Apres midi debut de conge</label>'+
+                        '</li>'+
+                        '<li>'+
+                            '<input type="checkbox" id="demiJourneeEnd" name="dJEnd">'+
+                            '<label for="demiJourneeEnd">matinee fin de conge</label>'+
+                        '</li>'+  
+                    '</ul>'+ 
+                '</div>'+                
                 '<div class="drp-buttons">' +
+
                     '<span class="drp-selected"></span>' +
+
                     '<button class="cancelBtn" type="button"></button>' +
                     '<button class="applyBtn" disabled="disabled" type="button" onclick="send()"></button> ' +
                 '</div>' +
