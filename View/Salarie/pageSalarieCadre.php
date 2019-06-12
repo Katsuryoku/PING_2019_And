@@ -24,7 +24,7 @@ session_start();
 	<script src="moment.min.js"></script>
 	<script src="daterangepicker.js"></script>
 	<script  src='pageSalarieNonCadre.js'></script>
-	<script  src='navbar.js'></script>
+	<script  src='navbarC.js'></script>
 	
 
 </head>
@@ -41,7 +41,7 @@ session_start();
 include('../../Control/controlSal.php');
 ?>	
 
-<div data-include="navbar"></div>
+<div data-include="navbarC"></div>
 
 
 <div data-include="sideBar"></div>
@@ -56,13 +56,13 @@ include('../../Control/controlSal.php');
 						<p >Solde actuel : <?php echo $soldeCpn;?> jours</p>
 						<p >Solde restant du N-1 : <?php echo $soldeCpnm1;?> jours</p>
 						<p >Pris en N : <?php echo $prisCpn;?> jours</p>
-						<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="calendarFunction()" onclick="calendarFunctionBis()"/></p>
+						<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="sendType('1');calendarFunction();calendarFunctionBis()"/></p>
 
 					</div>
 
 
 				</div>
-				<div id="myDIV" style = "display : none">
+				<div id="myDIVBis" style = "display : none">
 					<div ng-controller="MainCtrl" class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="container mt-5 mb-5" style="width: 235px">
@@ -96,12 +96,12 @@ include('../../Control/controlSal.php');
 						<p >Solde actuel : <?php echo $soldeJRRCR;?> jours</p>
 						<p >Pris en N : <?php echo $prisJRRCR;?> jours</p>
 						<p >Acquis en N : <?php echo $acquisJRRCR;?> jours</p>
-						<p ><input type="submit" class="btn btn-info" value="Demande RCR" onclick="calendarFunctionBis()" onclick="calendarFunction()"/></p>
+						<p ><input type="submit" class="btn btn-info" value="Demande RCR" onclick="sendType('1');calendarFunctionBis();calendarFunction()"/></p>
 					</div>
 
 
 				</div>
-				<div id="myDIVBis" style = "display : none">
+				<div id="myDIV" style = "display : none">
 					<div ng-controller="MainCtrl" class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="container mt-5 mb-5" style="width: 235px">
@@ -114,7 +114,7 @@ include('../../Control/controlSal.php');
 										startDate: moment().startOf('hour'),
 										endDate: moment().startOf('hour').add(32, 'hour'),
 										locale: {
-											format: ' DD/M A'
+											format: ' DD/MM'
 										}
 									});
 								});
