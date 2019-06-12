@@ -24,7 +24,7 @@ session_start();
 	<script src="moment.min.js"></script>
 	<script src="daterangepicker.js"></script>
 	<script  src='pageSalarieNonCadre.js'></script>
-	<script  src='navbarC.js'></script>
+	<script  src='navbar.js'></script>
 	
 
 </head>
