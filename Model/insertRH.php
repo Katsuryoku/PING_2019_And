@@ -2,7 +2,7 @@
 
     if (isset($_POST["id"])) { 
            
-        include ("C:/wamp64/www/PING_2019_And-Mercier/Tests/testMail2/sendMailNotif.php");
+        include ("sendMailNotif.php");
         include("connect.php");
         if(isset($_POST["Motif"]))
         {

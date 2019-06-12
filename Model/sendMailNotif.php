@@ -1,7 +1,7 @@
 <?php 
 	include "connect.php";
 	include "query.php";
-	include "C:/wamp64/www/PING_2019_And-Mercier/Tests/testMail/sendMail.php";
+	include "sendMail.php";
 	
 	function sendMailNote($id,$TypeMail){
 	

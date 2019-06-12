@@ -55,14 +55,14 @@
 		$query = "INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES (NULL, ".$idtype.", ".$idsalaries.", ".$idRespHier.", '".$deb."', ".$demiJournee.", ".$NbEngage.", '0', '0', NULL, NULL, '0', '0', '0')";
 		var_dump($query);
 		$result = mysqli_query($con, $query);
-
+/*
 		include "../../Model/sendMailNotif.php";
 		$queryE = "SELECT * FROM demande WHERE iddemande = MAX(iddemande)";
 		$resultE = mysqli_query($con, $query);
 		$rowE = mysqli_fetch_array($resultE);
 		$id = $rowE["iddemande"];
 		sendMailNote($id,"EE");
-
+*/
 
 	}
 	function dateDiff($date1, $date2){
