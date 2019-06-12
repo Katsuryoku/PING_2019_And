@@ -3,8 +3,7 @@ function EnvoiePost(loginS,mdp){
 		url:"session.php",
 		type:"POST",
 		data:{"login":loginS,"password":mdp},
-		success: function () {   // success callback function
-
+		success: function() {   // success callback function
 			
     }
 		

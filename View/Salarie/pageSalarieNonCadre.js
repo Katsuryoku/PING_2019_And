@@ -54,7 +54,7 @@ function infoDecesMariage(){
 
 
 
-function clickMotifAbsence(){
+function clickMotifAbsence(id,date,demi,nb){
 	let value = document.getElementById("motifAbsence").value;
 	
 	if(value==='01'){
@@ -71,11 +71,45 @@ function clickMotifAbsence(){
 		typeDeces.style.display="none";	
 		let typeMariage = document.getElementById("mariage");
 		typeMariage.style.display="none";
+		//sendDemande("3" + value,id,date,demi,nb,idjustif);
 	}
+	
 	
 }
 
+function send() {
+    console.log("Callback has been called!");
+    $('#picker span').html(start.format('DD/M A') + ' - ' + end.format('DD/M A'));
+    start = startDate;
+    end = endDate;   
+    sendDate(start,end);
+    console.log("dates envoyees");
 
+   };
+
+function sendDate(startDate,endDate){
+
+	$.ajax({
+		    url: "sessionVar.php",
+		    type : "POST",
+		    data : {"startDate" : startDate, "endDate" : endDate} ,
+		    dataType:'json',
+		    succes:function(){
+		    	console.log("Date success");
+		    }
+	     })
+}
+
+
+function sendDemande(type)
+	{
+		$.ajax({
+			    url: "postDemandes.php",
+			    type : "POST",
+			    data : {"type" : type} ,
+			    dataType:'json'
+		     });
+	}
 
 
 function GetDescriptif(ty){

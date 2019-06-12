@@ -40,8 +40,7 @@ session_start();
 
 <?php
 $db = mysqli_connect('localhost','root','','andrice') or die('Erreur connexion');
-$log= $_SESSION['login'];
-
+$log= $_SESSION["login"];
 $stmt = $db->prepare("SELECT `SOLDECPN-1`,`PRISCPN`,`SOLDECPN` FROM solde JOIN salarie ON solde.idsalaries=salarie.idsalaries WHERE login=?");
 $stmt->bind_param("s", $log);
 $stmt->execute();
@@ -129,7 +128,7 @@ $result = mysqli_query($db, $query);
 					<div ng-controller="MainCtrl" class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="container mt-5 mb-5" style="width: 235px">
-								<input type="text" id="picker" class="form-control">
+								<input type="text" id="picker" class="form-control" >
 							</div>
 							<script>
 								$(document).ready(function(){
@@ -142,7 +141,9 @@ $result = mysqli_query($db, $query);
 											daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 											monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
 										}
+
 									});
+									
 								});
 							</script>
 						</div>
@@ -169,7 +170,7 @@ $result = mysqli_query($db, $query);
 									<option value="07">Congé enfant malade</option>
 
 								</select><br><br>
-								<input type="submit" class="btn btn-info" value="Demander" onclick="clickMotifAbsence(),document.getElementById('ancre2eChoix').scrollIntoView();"/>
+								<input type="submit" class="btn btn-info" value="Demander" onclick="clickMotifAbsence(value,<?php $_SESSION["login"] ?>,date,demi,nb,idjustif),document.getElementById('ancre2eChoix').scrollIntoView();"/>
 
 							</fieldset>
 						</form>
@@ -207,7 +208,7 @@ $result = mysqli_query($db, $query);
 									<option value="3">Beaux-parents</option>
 
 								</select><br><br>
-								<input id="bDeces" type="submit" value="Demander" class="btn btn-info" />
+								<input id="bDeces" type="submit" value="Demander" class="btn btn-info" onclick="sendDemande()" />
 							</div>
 						</fieldset>
 					</form>
