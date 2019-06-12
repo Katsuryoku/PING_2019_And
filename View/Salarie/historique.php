@@ -41,28 +41,7 @@
 					
 					<?php
 						
-						session_start();
-						
-						$login = $_SESSION['login'];
-						
-						// on se connecte à MySQLi 
-						$db = mysqli_connect('localhost','root','','andrice')
-								or die('Error connecting to MySQL server.');  
-						 
-						
-						$query2= "SELECT idsalaries FROM salarie WHERE login = '".$login."'";
-						$result2 = mysqli_query($db, $query2);
-						$row2 = mysqli_fetch_array($result2);
-						if($row2['idsalaries'] != NULL){
-							$idsalarie = $row2['idsalaries'];
-						} else {
-							echo "Le champ 'idsalaries' n'est pas renseigné dans la BDD.";
-						}
-						
-						// on crée la requete SQL 
-						$query = "SELECT DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, MotifRefus FROM demande JOIN typedemande on demande.idtype = typedemande.idtype WHERE demande.idsalaries = ".$idsalarie;
-						// on envoie la requête 
-						$result = mysqli_query($db, $query);
+				include('../../Control/controlSal.php');
 						
 					?>
 					<tbody id="myTable">	
@@ -80,8 +59,6 @@
 								</tr>
 							<?php
 							}  
-						// on ferme la connexion à mysql 
-						mysqli_close($db);  
 					?>
 					</tbody>
 					
