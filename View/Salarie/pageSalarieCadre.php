@@ -38,74 +38,13 @@ session_start();
 </script>
 
 <?php
-$db = mysqli_connect('localhost','root','','andrice') or die('Erreur connexion');
-$log= $_SESSION['login'];
-$stmt = $db->prepare("SELECT `SOLDECPN-1`,PRISCPN,SOLDECPN,ACQUISJRRCR,PRISJRRCR,SOLDEJRRCR FROM solde JOIN salarie ON solde.idsalaries=salarie.idsalaries WHERE login=?");
-$stmt->bind_param("s", $log);
-$stmt->execute();
-$stmt->bind_result($soldeCpnm1,$prisCpn,$soldeCpn,$acquisJRRCR,$prisJRRCR,$soldeJRRCR);
-$stmt->fetch();
-$stmt->close();
-
-$stmt2 = $db->prepare("SELECT sexe FROM salarie WHERE login=?");
-$stmt2->bind_param("s", $log);
-$stmt2->execute();
-$stmt2->bind_result($genre);
-$stmt2->fetch();
-$stmt2->close();
-
-
-$query2= "SELECT idsalaries FROM salarie WHERE login = '".$log."'";
-$result2 = mysqli_query($db, $query2);
-$row2 = mysqli_fetch_array($result2);
-if($row2['idsalaries'] != NULL){
-	$idsalarie = $row2['idsalaries'];
-} else {
-	echo "Le champ 'idsalaries' n'est pas renseigné dans la BDD.";
-}
-
-// on crée la requete SQL 
-$query = "SELECT DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, MotifRefus FROM demande JOIN typedemande on demande.idtype = typedemande.idtype WHERE demande.idsalaries = ".$idsalarie." ORDER BY Date_deb DESC LIMIT 10";
-// on envoie la requête 
-$result = mysqli_query($db, $query);
-
-
+include('../../Control/controlSal.php');
 ?>	
 
 <div data-include="navbarC"></div>
 
 
-<div class="sidenav" style="height:100%;width:300px;position: fixed;background-color:lightsteelblue;">
-	<div class="container-fluid">
-		<table class="table table-striped table-hover table-responsive" style="padding:10px;">
-			<tr style="background-color:gainsboro;">
-				<th>Dernières demandes</th>
-			</tr>
-			<?php 
-			while ($row = mysqli_fetch_array($result)){
-				$date_deb = new DateTime($row['Date_deb']);
-				if($row['MotifRefus'] != NULL){
-					$status = 'Refusée';
-				}else{
-					$status = $row['Valide']? 'Validée' : 'En attente';
-				}
-				?>
-				<?php if($status == 'Refusée') {?><tr style="background-color:red;">
-					<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y');?></td>
-					<?php }elseif ($status =='Validée'){ ?><tr style="background-color:lime;">
-						<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y');?></td>
-						<?php }elseif ($status =='En attente'){ ?><tr   style="background-color:orange;"> 
-							<td onclick ="window.location 	='demandes.php'"><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y');?></td>
-						</tr>
-					<?php }
-				}
-				// on ferme la connexion à mysql 
-				mysqli_close($db);
-				?>
-			</table>
-			<a href="HistoriquePourEmploye.php" class="btn btn-primary btn-block">Historique</a>
-		</div>
-	</div>
+<div data-include="sideBar"></div>
 
 	<div class="offset-lg-4 col-lg-8">
 		<div class="row mt-3">
