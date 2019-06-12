@@ -21,15 +21,9 @@ function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser 
       // Cas RH
       if ($idmana == ''){
 
-       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Valide =0";
+       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND Prevalide =1 AND (Valide =0 OR `MotifRefus` IS NULL)";
      }else{
         // Cas Manager
-      $stmt = $db->prepare("SELECT idsalaries FROM salarie WHERE login=?");
-      $stmt->bind_param("s", $log);
-      $stmt->execute();
-      $stmt->bind_result($idmana);
-      $stmt->fetch();
-      $stmt->close();
       $update_query = "UPDATE ".$bdd." SET ".$checkatt." = 1 WHERE ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) AND idRespHier = ".$idmana;
     }
   }
@@ -41,7 +35,7 @@ if ($idUser != ''){
 }else{
    // Cas RH
  if ($idmana == ''){
-  $query = "SELECT * FROM ".$bdd." WHERE Valide =0 AND ".$checkatt."=0 ORDER BY ".$idorder." DESC LIMIT 5";
+  $query = "SELECT * FROM ".$bdd." WHERE Prevalide =1 AND Valide =0 AND `MotifRefus` IS NULL AND ".$checkatt."=0 ORDER BY ".$idorder." DESC LIMIT 5";
 }else{
     // cas Manager
   $query = "SELECT * FROM ".$bdd." WHERE  ".$checkatt."=0 AND idRespHier = ".$idmana." AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) ORDER BY ".$idorder." DESC LIMIT 5";
@@ -80,7 +74,7 @@ if(mysqli_num_rows($result)>0)
       if ($idmana == ''){
         $output .= '
         <li>
-        <a href="../Manager/demandeCours.php">
+        <a href="../RH/demandeCours.php">
         <strong> Nouvel demande du '.$row["Date_deb"].' de '.$row["idsalaries"].'. </strong><br />
         </a>
         </li>
@@ -125,12 +119,13 @@ else{
   $output .= '<li><a class="text-bold text-italic">No Noti Found</a></li>';
 }
 if ($idUser != ''){
+  // Employé
  $status_query =  "SELECT * FROM ".$bdd." WHERE  ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL) AND idsalaries = ".$idUser." ORDER BY ".$idorder." DESC LIMIT 5" ;
 
 }else{
+  // RH
   if ($idmana == ''){
-
-    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND Valide =0";
+    $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND Prevalide = 1 AND Valide =0 AND `MotifRefus` IS NULL";
   }else{
     $status_query = "SELECT * FROM ".$bdd." WHERE ".$checkatt."=0 AND (Valide =1 OR  `MotifRefus` IS NOT NULL OR Prevalide =0) AND idRespHier = ".$idmana;
   }

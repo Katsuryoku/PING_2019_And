@@ -1,7 +1,7 @@
 <?php
   include('connect.php');
     if(isset($_GET)){
-      $id = $_GET["id"];
+      $id = $idsalarie;
       $query = "SELECT * FROM demande WHERE idsalaries =".$id;
       $result = mysqli_query($con, $query);
       $output = '';

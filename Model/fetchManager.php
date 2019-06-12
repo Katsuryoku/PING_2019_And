@@ -1,18 +1,20 @@
 <?php
   include('connect.php');
     if(isset($_GET)){
-      $queryView = "UPDATE demande SET viewByManager = 1  WHERE viewByManager = 0";
+
+      $id = $idsalarie;
+      $queryView = "UPDATE demande SET viewByManager = 1  WHERE viewByManager = 0 AND idRespHier = ".$idsalarie;
       mysqli_query($con, $queryView);
-      $query = "SELECT * FROM demande WHERE Prevalide = 0  AND MotifRefus is Null";
+      $query = "SELECT * FROM demande WHERE Prevalide = 0  AND MotifRefus is Null AND idRespHier = ".$idsalarie;
       $result = mysqli_query($con, $query);
       $output = '';
       while($row = mysqli_fetch_array($result))
         {
-          $queryS = "SELECT * FROM salarie WHERE idsalaries =".$row["idsalaries"];
+          $queryS = "SELECT * FROM salarie WHERE idsalaries =".$row["idsalaries"]." AND idRespHier = ".$idsalarie;
           $resultS = mysqli_query($con, $queryS);
           $rowS = mysqli_fetch_array($resultS);
 
-          $queryM = "SELECT * FROM salarie WHERE idsalaries =".$row["idRespHier"];
+          $queryM = "SELECT * FROM salarie WHERE idsalaries =".$row["idRespHier"]." AND idRespHier = ".$idsalarie;
           $resultM = mysqli_query($con, $queryM);
           $rowM = mysqli_fetch_array($resultM);
 

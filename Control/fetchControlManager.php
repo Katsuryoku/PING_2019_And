@@ -1,6 +1,6 @@
 <?php
 include('../Model/fetch.php');
 
-fetch($_POST["view"],"demande","viewByManager","iddemande", $con, '15');
+fetch($_POST["view"],"demande","viewByManager","iddemande", $con, $idsalarie);
 
 ?>
