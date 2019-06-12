@@ -8,8 +8,24 @@
       <li class="nav-item">
       <a class="nav-item nav-link " href="../pageLogin.php">HOME</a>
       </li>
-      <li class="nav-item">
+      
+      <li class="nav-item"><?php
+if(isset($_SESSION)) {
+  $log= $_SESSION["login"];
+}else{
+  session_start();
+  $log= $_SESSION["login"];
+}
+if ($log == 'JBR'){
+  ?>
+      <a class="nav-item nav-link " href="pageSalarieCadre.php">DashBoard</a>
+  <?php
+}else{
+  ?>
       <a class="nav-item nav-link " href="pageSalarieNonCadre.php">DashBoard</a>
+  <?php
+}
+?>
       </li>
       <li class="nav-item">
       <a class="nav-item nav-link" href="demandes.php">Demandes en cours</a>
