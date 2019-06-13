@@ -72,13 +72,16 @@ include('../../Control/controlSal.php');
 							$(document).ready(function(){
 								$("#picker").daterangepicker({
 									timePicker: false,
-									startDate: moment().startOf('day'),
+									startDate: moment().startOf('day').add(1,'day'),
 									endDate: moment().startOf('day').add(1,'day'),
 
 									locale: {
 										format: ' DD/MM',
 										daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 										monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+									},
+									isInvalidDate: function(date) {
+										return (date <= Date.now());
 									}
 
 								});
