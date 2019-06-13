@@ -16,8 +16,7 @@ function createDemande($con,$startDate,$endDate,$demiDeb,$demiFin, $login, $idty
 		$Date_end = strtotime($end);
 		$deb= new DateTime($deb);
 		$deb = $deb->format("Y-m-d");
-		//var_dump($deb);
-		$NbEngage = dateDiff($Date_end,$Date_deb);
+		$NbEngage = dateDiff($startDate,$endDate,$idtype);
 		$NbEngage = (float)$NbEngage["day"];
 		//var_dump($demiDeb);
 		//var_dump($demiFin);
@@ -48,7 +47,6 @@ function createDemande($con,$startDate,$endDate,$demiDeb,$demiFin, $login, $idty
 		//var_dump($demiJournee);
 		//var_dump($NbEngage);
 		
-		
 		//var_dump($NbEngage);
 		$query = "INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`,`Date_envoie`,`Date_resFina`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES (NULL, ".$idtype.", ".$idsalaries.", ".$idRespHier.", '".$deb."','".$DateToday."', NULL, ".$demiJournee.", ".$NbEngage.", '0', '0', NULL, NULL, '0', '0', '0')";
 		//var_dump($query);
@@ -65,22 +63,40 @@ function createDemande($con,$startDate,$endDate,$demiDeb,$demiFin, $login, $idty
 	}
 }
 
-function dateDiff($date1, $date2){
-    $diff = abs($date1 - $date2); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
-    $retour = array();
+function dateDiff($date1, $date2,$idtype){
+	if ($idtype == 2){
+		$Date_deb = strtotime($date1);
+		$Date_end = strtotime($date2);
+		$diff = abs($Date_deb - $Date_end); // abs pour avoir la valeur absolute, ainsi éviter d'avoir une différence négative
+		$retour = array();
+		$tmp = $diff;
+		$retour['second'] = $tmp % 60;
 
-    $tmp = $diff;
-    $retour['second'] = $tmp % 60;
+		$tmp = floor( ($tmp - $retour['second']) /60 );
+		$retour['minute'] = $tmp % 60;
 
-    $tmp = floor( ($tmp - $retour['second']) /60 );
-    $retour['minute'] = $tmp % 60;
+		$tmp = floor( ($tmp - $retour['minute'])/60 );
+		$retour['hour'] = $tmp % 24;
 
-    $tmp = floor( ($tmp - $retour['minute'])/60 );
-    $retour['hour'] = $tmp % 24;
+		$tmp = floor( ($tmp - $retour['hour'])  /24 );
+		$retour['day'] = $tmp+1;
+		return $retour;
+	}else{
+		// https://stackoverflow.com/questions/12365461/day-difference-without-weekends
+		$startDate = new DateTime($date1);
+		$endDate = new DateTime($date2);
+		$isWeekday = function ($date) {
+			return $date->format('N') < 6;
+		};
 
-    $tmp = floor( ($tmp - $retour['hour'])  /24 );
-    $retour['day'] = $tmp+1;
-
-    return $retour;
+		$days = $isWeekday($endDate) ? 1 : 0;
+		while($startDate->diff($endDate)->days > 0) {
+			$days += $isWeekday($startDate) ? 1 : 0;
+			$startDate = $startDate->add(new DateInterval("P1D"));
+		}
+		$retour = array();
+		$retour['day'] = $days;
+		return $retour;
+	}
 }
 ?>

@@ -85,7 +85,7 @@ function clickMotifAbsence(id,date,demi,nb){
 	
 }
 function Confirm(){
-	openPopUpWindow();
+	 openPopUpWindow();
 }
 
 function openPopUpWindow(){
@@ -128,11 +128,20 @@ function send() {
 	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
 	demiDeb = document.getElementById("demiJourneeStart").checked;
 	demiFin = document.getElementById("demiJourneeEnd").checked;
+    console.log(start);
+    console.log(end);
 	sendDate(start,end,demiDeb,demiFin);
     //console.log(demiDeb);
 };
 
-
+function sendBis() {
+	var start = $('#pickerBis').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+	var end = $('#pickerBis').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+	demiDeb = document.getElementById("demiJourneeStart").checked;
+	demiFin = document.getElementById("demiJourneeEnd").checked;
+	sendDate(start,end,demiDeb,demiFin);
+    //console.log(demiDeb);
+};
 
 function GetDescriptif(ty){
 

@@ -72,8 +72,8 @@ include('../../Control/controlSal.php');
 							$(document).ready(function(){
 								$("#picker").daterangepicker({
 									timePicker: false,
-									startDate: moment().startOf('hour'),
-									endDate: moment().startOf('hour').add(32, 'hour'),
+									startDate: moment().startOf('hour').add(1,'day'),
+									endDate: moment().startOf('hour').add(1, 'day'),
 									locale: {
 										format: ' DD/MM ',
 										daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
@@ -111,10 +111,15 @@ include('../../Control/controlSal.php');
 							$(document).ready(function(){
 								$("#pickerBis").daterangepicker({
 									timePicker: false,
-									startDate: moment().startOf('hour'),
-									endDate: moment().startOf('hour').add(32, 'hour'),
+									startDate: moment().startOf('day').add(1,'day'),
+									endDate: moment().startOf('day').add(1, 'day'),
 									locale: {
-										format: ' DD/MM '
+										format: ' DD/MM ',
+										daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+										monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+									},
+									isInvalidDate: function(date) {
+										return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 									}
 								});
 							});
@@ -192,12 +197,15 @@ include('../../Control/controlSal.php');
 										$(document).ready(function(){
 											$("#pickerDeces").daterangepicker({
 												timePicker: false,
-												startDate: moment().startOf('hour'),
-												endDate: moment().startOf('hour').add(32, 'hour'),
+												startDate: moment().startOf('hour').add(1,'day'),
+												endDate: moment().startOf('hour').add(1, 'day'),
 												locale: {
 													format: ' DD/MM ',
 													daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 													monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+												},
+												isInvalidDate: function(date) {
+													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
 										});
@@ -234,12 +242,15 @@ include('../../Control/controlSal.php');
 										$(document).ready(function(){
 											$("#pickerMariage").daterangepicker({
 												timePicker: false,
-												startDate: moment().startOf('hour'),
-												endDate: moment().startOf('hour').add(32, 'hour'),
+												startDate: moment().startOf('hour').add(1,'day'),
+												endDate: moment().startOf('hour').add(1, 'day'),
 												locale: {
 													format: ' DD/MM ',
 													daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 													monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+												},
+												isInvalidDate: function(date) {
+													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
 										});
@@ -266,12 +277,15 @@ include('../../Control/controlSal.php');
 										$(document).ready(function(){
 											$("#pickerAbs").daterangepicker({
 												timePicker: false,
-												startDate: moment().startOf('hour'),
-												endDate: moment().startOf('hour').add(32, 'hour'),
+												startDate: moment().startOf('hour').add(1,'day'),
+												endDate: moment().startOf('hour').add(1, 'day'),
 												locale: {
 													format: ' DD/MM',
 													daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 													monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+												},
+												isInvalidDate: function(date) {
+													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
 										});

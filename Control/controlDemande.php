@@ -6,8 +6,8 @@ if (isset($_POST["startDate"]))
 	$demiDeb = $_POST["demiDeb"];
 	$demiFin = $_POST["demiFin"];
 }else{
-	$startDate = "20-10-2019";
-	$endDate = "21-10-2019";
+	$startDate = "19-06-2019";
+	$endDate = "27-06-2019";
 	$demiDeb = "FALSE";
 	$demiFin = "FALSE";
 }
