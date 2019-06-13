@@ -2,7 +2,7 @@
     if (isset($_POST["id"])) {
     
         
-        include ("../../Model/sendMailNotif.php");
+        include ("sendMailNotif.php");
         if(isset($_POST["Date"]))
         {
             $x=error_reporting(2);

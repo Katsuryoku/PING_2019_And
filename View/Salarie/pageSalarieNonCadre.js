@@ -54,8 +54,9 @@ function infoDecesMariage(){
 
 
 
-function clickMotifAbsence(){
+function clickMotifAbsence(id,date,demi,nb){
 	let value = document.getElementById("motifAbsence").value;
+	
 	if(value==='01'){
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="block";
@@ -65,13 +66,20 @@ function clickMotifAbsence(){
 		let typeMariage = document.getElementById("mariage");
 		typeMariage.style.display="block";
 	}
-	else{
+
+	
+	else if(value==='03' || value==='04' || value==='07'){
+		let typeAbs = document.getElementById('Abs');
+		typeAbs.style.display=calendarFunctionAbs();
+	}
+	else {
+
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="none";	
 		let typeMariage = document.getElementById("mariage");
 		typeMariage.style.display="none";
-		sendType(value);
-
+		let typeAbs = document.getElementById("Abs");
+		typeAbs.style.display="none";
 	}
 	
 	
@@ -126,10 +134,6 @@ function send() {
 
 
 
-
-
-
-
 function GetDescriptif(ty){
 
 	$.ajax({
@@ -161,10 +165,10 @@ function GetDescriptif2(ty){
 }
 function calendarFunction() {
 	var x = document.getElementById("myDIV");
-	var y = document.getElementById("myDIVBis");
+	//var y = document.getElementById("myDIVBis");
 	if (x.style.display === "none") {
 		x.style.display = "block";
-		y.style.display = "none";
+		//y.style.display = "none";
 	} else {
 		x.style.display = "none";
 	}
@@ -172,10 +176,10 @@ function calendarFunction() {
 
 function calendarFunctionBis() {
 	var x = document.getElementById("myDIVBis");
-	var y = document.getElementById("myDIV");
+	//var y = document.getElementById("myDIV");
 	if (x.style.display === "none") {
 		x.style.display = "block";
-		y.style.display = "none";
+		//y.style.display = "none";
 	} else {
 		x.style.display = "none";
 	}
@@ -194,6 +198,24 @@ function calendarFunctionTer() {
 
 function calendarFunctionMariage() {
 	var x = document.getElementById("myDIVMariage");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+function calendarFunctionDeces() {
+	var x = document.getElementById("myDIVDeces");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+}
+
+function calendarFunctionAbs() {
+	var x = document.getElementById("myDIVAbs");
 	if (x.style.display === "none") {
 		x.style.display = "block";
 	} else {
