@@ -12,8 +12,8 @@ $(document).ready(function() {
 			    },
 				error: function(data)
 				{
-					var event_data = data.demande;
-		            $("#Demandes").append(event_data);
+					// var event_data = data.demande;
+		   //          $("#Demandes").append(event_data);
             		console.log("error");
             		alert("404. Please wait until the File is Loaded.");
         		}

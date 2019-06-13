@@ -1,12 +1,11 @@
 <?php
+include("connect.php");
+ include ("sendMailNotif.php");
     if (isset($_POST["id"])) {
-    
         
-        include ("sendMailNotif.php");
         if(isset($_POST["Date"]))
         {
             $x=error_reporting(2);
-            include("connect.php");
             //echo($_POST["id"]);
             $id = $_POST["id"];
             $Date = $_POST["Date"];
@@ -21,7 +20,7 @@
         else
         {
             error_reporting(2);
-            include("connect.php");
+            
             
             $id = $_POST["id"];
             sendMailNote($id,"ES");

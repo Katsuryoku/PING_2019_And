@@ -1,13 +1,13 @@
 <?php
   include('connect.php');
-    // if(isset($_GET)){
+    if(isset($_GET)){
       $login = "MANA";//$_SESSION["login"];
-      var_dump($login);
+      // var_dump($login);
       $queryS = "SELECT * FROM salarie WHERE login = '".$login."'";
       $resultS = mysqli_query($con, $queryS);
       $rowS = mysqli_fetch_array($resultS);
       $idsalarie = $rowS["idsalaries"];
-      var_dump($idsalarie);
+      // var_dump($idsalarie);
 
       $queryView = "UPDATE demande SET viewByManager = 1  WHERE viewByManager = 0 AND idRespHier = ".$idsalarie;
       mysqli_query($con, $queryView);
@@ -35,5 +35,5 @@
       );
      // echo var_dump($data);
       echo json_encode($data);
-   // }
+   }
 ?>

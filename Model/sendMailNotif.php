@@ -37,7 +37,7 @@
 		elseif ($TypeMail == "MA"){
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
-			$mailR = "remymercier1@free.fr";
+			$mailR = queryMails($id, "RH");
 			$date = queryDate($id);
 			$type = queryType($id);
 
@@ -63,7 +63,8 @@
 			var_dump($id);
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
-			$mailR = "remymercier1@free.fr";
+			$mailR = queryMails($id, "RH");
+			var_dump($mailR);
 			$date = queryDate($id);
 			$type = queryType($id);
 
@@ -87,7 +88,7 @@
 		elseif ($TypeMail == "RR"){
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
-			$mailR = "remymercier1@free.fr";
+			$mailR = queryMails($id, "RH");
 			$date = queryDate($id);
 			$type = queryType($id);
 			$Motif = queryMotif($id);
@@ -111,7 +112,7 @@
 		elseif ($TypeMail == "EM"){
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
-			$mailR = "remymercier1@free.fr";
+			$mailR = queryMails($id, "RH");
 			$date = queryDate($id);
 			$type = queryType($id);
 			$RH = queryRH($id);
@@ -140,7 +141,7 @@
 		elseif ($TypeMail == "ES"){
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
-			$mailR = "remymercier1@free.fr";
+			$mailR = queryMails($id, "RH");
 			$date = queryDate($id);
 			$type = queryType($id);
 			$RH = queryRH($id);
@@ -169,7 +170,7 @@
 		elseif ($TypeMail == "EE"){
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
-			$mailR = "remymercier1@free.fr";
+			$mailR = queryMails($id, "RH");
 			$date = queryDate($id);
 			$type = queryType($id);
 

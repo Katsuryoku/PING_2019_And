@@ -15,6 +15,12 @@
 			$row = mysqli_fetch_array($result);
 			return $row["MailPro"];
 		}
+		elseif ($type == "RH"){
+			$query = "SELECT MailPro FROM salarie WHERE Categorie='RRH'";
+			$result = mysqli_query($con,$query);
+			$row = mysqli_fetch_array($result);
+			return $row["MailPro"];
+		}
 	}
 	function queryDate($id){
 		include "connect.php";
