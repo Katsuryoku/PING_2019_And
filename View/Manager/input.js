@@ -1,5 +1,4 @@
 $(document).ready(function() {
-			console.log('begin');
 
 		    $.ajax({
 			    url:"../../Model/fetchManager.php",
@@ -11,8 +10,10 @@ $(document).ready(function() {
 			      	var event_data = data.demande;
 		            $("#Demandes").append(event_data);
 			    },
-				error: function(d)
+				error: function(data)
 				{
+					var event_data = data.demande;
+		            $("#Demandes").append(event_data);
             		console.log("error");
             		alert("404. Please wait until the File is Loaded.");
         		}

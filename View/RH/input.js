@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-			console.log('begin');
 			$.ajax({
 			    url:"../../Model/fetchRH.php",
 			    type : 'get',
