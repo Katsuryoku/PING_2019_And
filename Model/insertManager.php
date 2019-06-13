@@ -7,8 +7,9 @@
         {
             $id = $_POST["id"];
             $Motif = $_POST["Motif"];
-            
-            $query = 'UPDATE demande SET MotifRefus = "'.$Motif.'" WHERE iddemande = '.$id;
+            $DateFinal = new DateTime();
+            $DateFinal = $DateFinal->format("Y-m-d");
+            $query = 'UPDATE demande SET MotifRefus = "'.$Motif.'", Date_resFina = "'.$DateFinal.'"  " WHERE iddemande = '.$id;
             //var_dump($query);
             //var_dump($x);
             mysqli_query($con, $query);
