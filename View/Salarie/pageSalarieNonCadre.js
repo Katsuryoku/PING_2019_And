@@ -89,48 +89,49 @@ function Confirm(){
 }
 
 function openPopUpWindow(){
-        var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
-        w.focus();
-    }
-;
+	var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
+	w.focus();
+}
+
+function sendType(type)
+{
+	$.ajax({
+		url: "../../Control/controlSetType.php",
+		type : "POST",
+		data : {type: type} ,
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+		},
+		error:function(data){
+			console.log("fail type");
+		}
+	});
+}
+function sendDate(startDate,endDate,demiDeb,demiFin){
+
+	$.ajax({
+		url: "../../Control/controlDemande.php",
+		type : "POST",
+		data : {startDate : startDate, endDate : endDate,demiDeb:demiDeb,demiFin:demiFin} ,
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+		},
+		error:function(){
+			console.log("fail");
+		}
+	})
+}
 function send() {
 	var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
 	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
 	demiDeb = document.getElementById("demiJourneeStart").checked;
-    demiFin = document.getElementById("demiJourneeEnd").checked;
-    sendDate(start,end,demiDeb,demiFin);
-    
+	demiFin = document.getElementById("demiJourneeEnd").checked;
+	sendDate(start,end,demiDeb,demiFin);
     //console.log(demiDeb);
-   };
+};
 
-
-function sendDate(startDate,endDate,demiDeb,demiFin){
-
-	$.ajax({
-		    url: "../../Model/createDemande.php",
-		    type : "POST",
-		    data : {"startDate" : startDate, "endDate" : endDate,"demiDeb":demiDeb,"demiFin":demiFin} ,
-		    dataType:'json',
-		    success: function(data){
-			    	console.log(data);
-			    	console.log("success");
-			    }
-	     })
-}
-
-
-function sendType(type)
-	{
-		$.ajax({
-			    url: "../../Model/createDemande.php",
-			    type : "POST",
-			    data : {"type" : type} ,
-			    dataType:'json',
-			    success: function(){
-			    	console.log("success");
-			    }
-		     });
-	}
 
 
 function GetDescriptif(ty){
