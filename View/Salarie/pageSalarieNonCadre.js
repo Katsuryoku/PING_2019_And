@@ -1,10 +1,10 @@
 $(function(){
-    var includes = $('[data-include]');
-    jQuery.each(includes, function(){
-      var file = $(this).data('include') + '.php';
-      $(this).load(file);
-    });
-  });
+	var includes = $('[data-include]');
+	jQuery.each(includes, function(){
+		var file = $(this).data('include') + '.php';
+		$(this).load(file);
+	});
+});
 
 function showPopUp(){
 	let value = document.getElementById("motifAbsence").value;
@@ -47,8 +47,8 @@ function infoDecesMariage(){
 	let popup = document.getElementById("popupsDeces");
 	popup.style.display="block";
 	$(document).ready(function(){
-			$("#popupsDeces").toast('show');
-		});
+		$("#popupsDeces").toast('show');
+	});
 	
 }
 
@@ -81,47 +81,53 @@ function Confirm(){
 }
 
 function openPopUpWindow(){
-        var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
-        w.focus();
-    }
-;
-function send() {
-    var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
-	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
-	demiDeb = document.getElementById("demiJourneeStart").checked;
-    demiFin = document.getElementById("demiJourneeEnd").checked;
-    sendDate(start,end,demiDeb,demiFin);
-    
-    //console.log(demiDeb);
-   };
+	var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
+	w.focus();
+}
 
+function sendType(type='')
+{
+	$.ajax({
+		url: "../../Control/controlSetType.php",
+		type : "POST",
+		data : {type: type} ,
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+		},
+		error:function(data){
+			console.log("fail type");
+		}
+	});
+}
 function sendDate(startDate,endDate,demiDeb,demiFin){
 
 	$.ajax({
-		    url: "../../Model/createDemande.php",
-		    type : "POST",
-		    data : {"startDate" : startDate, "endDate" : endDate,"demiDeb":demiDeb,"demiFin":demiFin} ,
-		    dataType:'json',
-		    success: function(data){
-			    	console.log(data);
-			    	console.log("success");
-			    }
-	     })
+		url: "../../Control/controlDemande.php",
+		type : "POST",
+		data : {startDate : startDate, endDate : endDate,demiDeb:demiDeb,demiFin:demiFin} ,
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+		},
+		error:function(){
+			console.log("fail");
+		}
+	})
 }
+function send() {
+	var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+	demiDeb = document.getElementById("demiJourneeStart").checked;
+	demiFin = document.getElementById("demiJourneeEnd").checked;
+	sendDate(start,end,demiDeb,demiFin);
+    //console.log(demiDeb);
+};
 
 
-function sendType(type)
-	{
-		$.ajax({
-			    url: "../../Model/createDemande.php",
-			    type : "POST",
-			    data : {"type" : type} ,
-			    dataType:'json',
-			    success: function(){
-			    	console.log("success");
-			    }
-		     });
-	}
+
+
+
 
 
 function GetDescriptif(ty){
@@ -136,7 +142,7 @@ function GetDescriptif(ty){
 			document.getElementById('descr1').innerHTML=descriptif;
 
 		}
-    });
+	});
 }
 
 function GetDescriptif2(ty){
@@ -151,7 +157,7 @@ function GetDescriptif2(ty){
 			document.getElementById('descr2').innerHTML=descriptif;
 
 		}
-    });
+	});
 }
 function calendarFunction() {
 	var x = document.getElementById("myDIV");
