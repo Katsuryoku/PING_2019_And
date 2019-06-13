@@ -21,11 +21,11 @@ include('../../Control/controlSal.php');
 				}
 				?>
 				<?php if($status == 'Refusée') {?><tr style="background-color:red;">
-					<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y')." demandé le ".$row['Date_envoie']." (Refusée)";?></td>
+					<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y')." demandé le".$row['Date_envoie']." (Refusée)";?></td>
 					<?php }elseif ($status =='Validée'){ ?><tr style="background-color:lime;">
-						<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y')." demandé le ".$row['Date_envoie']." (Validée)";?></td></td>
+						<td><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y')." demandé le".$row['Date_envoie']." (Validée)";?></td>
 						<?php }elseif ($status =='En attente'){ ?><tr   style="background-color:orange;"> 
-							<td onclick ="window.location 	='demandes.php'"><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y')." demandé le ".$row['Date_envoie']." (En attente)";?></td>
+							<td onclick ="window.location 	='demandes.php'"><?php echo $row['NbEngage']." ".$row['Type']." à compter du ".$date_deb->format('d-m-Y')." demandé le".$row['Date_envoie']." (En attente)";?></td>
 						</tr>
 					<?php }
 				}
