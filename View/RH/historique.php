@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Historique RH</title>
+	<title>Historique Manager</title>
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -15,8 +15,6 @@
 	<script src="historique.js"></script>
 	<script src="navbar.js"></script>
 	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	
 	
 </head>
 
@@ -54,7 +52,7 @@
 
 				<?php
 				include('../../Control/controlRH.php');
-				?>
+				?>	
 				<tbody id="myTable">	
 					<?php
 						// on fait une boucle qui va faire un tour pour chaque enregistrement 
@@ -71,7 +69,7 @@
 							<td><?php echo $row['Type']; ?></td>
 							<?php if($row['MotifRefus'] != NULL){ 
 								$Motif = $row['MotifRefus']; 
-								echo "<td><a href='#' title='Motif de refus' data-toggle='popover' data-trigger='focus' data-placement='bottom' data-content=".$Motif."><i class='fas fa-info'></i></a> Refusée</td>";
+								echo "<td><a href='#' title='Motif de refus' data-toggle='popover' data-trigger='focus' data-placement='bottom' data-content='".$Motif."'><i class='fas fa-info'></i></a> Refusée</td>";
 							}else{ ?>
 								<td><?php echo $row['Valide']? 'Validée' : 'En attente';} ?></td>
 							<td><?php echo $row['Date_resFina']; ?></td>

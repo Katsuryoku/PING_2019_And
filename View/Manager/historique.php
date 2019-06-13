@@ -15,7 +15,6 @@
 	<script src="historique.js"></script>
 	<script src="navbar.js"></script>
 	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	
 </head>
 
@@ -70,7 +69,7 @@
 							<td><?php echo $row['Type']; ?></td>
 							<?php if($row['MotifRefus'] != NULL){ 
 								$Motif = $row['MotifRefus']; 
-								echo "<td><a href='#' title='Motif de refus' data-toggle='popover' data-trigger='focus' data-placement='bottom' data-content=".$Motif."><i class='fas fa-info'></i></a> Refusée</td>";
+								echo "<td><a href='#' title='Motif de refus' data-toggle='popover' data-trigger='focus' data-placement='bottom' data-content='".$Motif."'><i class='fas fa-info'></i></a> Refusée</td>";
 							}else{ ?>
 								<td><?php echo $row['Valide']? 'Validée' : 'En attente';} ?></td>
 							<td><?php echo $row['Date_resFina']; ?></td>
