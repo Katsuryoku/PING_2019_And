@@ -79,7 +79,7 @@ function dateDiff($date1, $date2){
     $retour['hour'] = $tmp % 24;
 
     $tmp = floor( ($tmp - $retour['hour'])  /24 );
-    $retour['day'] = $tmp;
+    $retour['day'] = $tmp+1;
 
     return $retour;
 }
