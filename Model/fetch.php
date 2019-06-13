@@ -10,7 +10,6 @@ include('access.php');
 */
 function fetch($post_view,$bdd, $checkatt, $idorder, $con, $idmana = '',$idUser = ''){
   $log= $_SESSION['login'];
-
   if(isset($post_view)){
     if($post_view != '')
     {

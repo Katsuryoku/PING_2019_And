@@ -26,6 +26,6 @@ include('../../Control/controlSal.php');
 				}
 				?>
 			</table>
-			<a href="HistoriquePourEmploye.php" class="btn btn-primary btn-block">Historique</a>
+			<a href="historique.php" class="btn btn-primary btn-block">Historique</a>
 		</div>
 	</div>

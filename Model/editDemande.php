@@ -11,7 +11,7 @@ include("connect.php");
             $Date = $_POST["Date"];
             $NbJours = $_POST["NbJours"];
             
-            $query = 'UPDATE demande SET Date_deb = "'.$Date.'", NbEngage ="'.$NbJours.'",viewByManager = 0, viewByRH = 0  WHERE iddemande = '.$id;
+            $query = 'UPDATE demande SET Date_deb = "'.$Date.'", NbEngage ="'.$NbJours.'",Prevalide =0,Valide=0,viewByManager = 0, viewByRH = 0  WHERE iddemande = '.$id;
             //var_dump($query);
             var_dump($x);
             mysqli_query($con, $query);
