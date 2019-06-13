@@ -76,7 +76,15 @@ function clickMotifAbsence(){
 	
 	
 }
+function Confirm(){
+	openPopUpWindow();
+}
 
+function openPopUpWindow(){
+        var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
+        w.focus();
+    }
+;
 function send() {
     var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
 	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
@@ -84,20 +92,20 @@ function send() {
     demiFin = document.getElementById("demiJourneeEnd").checked;
     sendDate(start,end,demiDeb,demiFin);
     
-    console.log(demiDeb);
+    //console.log(demiDeb);
    };
 
 function sendDate(startDate,endDate,demiDeb,demiFin){
 
 	$.ajax({
-		    url: "sessionVar.php",
+		    url: "../../Model/createDemande.php",
 		    type : "POST",
 		    data : {"startDate" : startDate, "endDate" : endDate,"demiDeb":demiDeb,"demiFin":demiFin} ,
 		    dataType:'json',
-		    succes:function(){
-		    	console.log("Date success");
-		    },
- error: function () { console.log("Date fail"); }
+		    success: function(data){
+			    	console.log(data);
+			    	console.log("success");
+			    }
 	     })
 }
 
@@ -105,10 +113,13 @@ function sendDate(startDate,endDate,demiDeb,demiFin){
 function sendType(type)
 	{
 		$.ajax({
-			    url: "sessionVar.php",
+			    url: "../../Model/createDemande.php",
 			    type : "POST",
 			    data : {"type" : type} ,
-			    dataType:'json'
+			    dataType:'json',
+			    success: function(){
+			    	console.log("success");
+			    }
 		     });
 	}
 

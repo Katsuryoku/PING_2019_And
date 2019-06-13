@@ -146,7 +146,7 @@ include('../../Control/controlSal.php');
 									<option value="3">Beaux-parents</option>
 
 								</select><br><br>
-								<input id="bDeces" type="submit" value="Demander" class="btn btn-info" onclick="sendDemande()" />
+								<input id="bDeces" type="submit" value="Demander" class="btn btn-info" onclick="sendType()" />
 							</div>
 						</fieldset>
 					</form>

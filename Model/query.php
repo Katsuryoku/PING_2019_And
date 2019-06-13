@@ -26,10 +26,10 @@
 
 	function queryType($id){
 		include "connect.php";
-		$query = "SELECT idtype FROM demande WHERE iddemande=".$id;
+		$query = "SELECT Nom FROM typedemande JOIN demande ON typedemande.idtype=demande.idtype WHERE iddemande=".$id;
 		$result = mysqli_query($con,$query);
 		$row = mysqli_fetch_array($result);
-		return $row["idtype"];
+		return $row["Nom"];
 	}
 	function queryMotif($id){
 		include "connect.php";

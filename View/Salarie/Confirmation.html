@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<p>Confirmez votre choix</p>
+		<button onclick="window.close()">Annuler</button>
+		<button onclick="returnDate()">Accepter</button>
+		<script type="text/javascript">
+		    // return the value to the parent window
+		    
+		    function returnDate(){
+		    	opener.send() ;
+		    	window.close();
+		        
+		    }
+
+
+		</script>
+	</body>
+</html>
+
