@@ -14,6 +14,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/js/dataTables.bootstrap4.min.js"></script>
 	<script src="historique.js"></script>
 	<script src="navbar.js"></script>
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 	
 </head>
 
@@ -36,12 +37,14 @@
 				data-show-fullscreen="true" style="width:100%;"> 
 				<thead>
 					<tr>
-						<th data-sortable="true" data-filter-control="select">Nom</th>
+						<th data-sortable="true">Nom</th>
 						<th data-sortable="true">Prenom</th>
+						<th data-sortable="true">Date de demande</th>
 						<th data-sortable="true">Date de début</th>
 						<th data-sortable="true">Nombre de jours</th>
-						<th data-sortable="true" data-filter-control="select">Type</th>
-						<th data-sortable="true" data-filter-control="select">Statut</th>
+						<th data-sortable="true">Type</th>
+						<th data-sortable="true">Statut</th>
+						<th data-sortable="true">Traitée le</th>
 						<th data-sortable="true">Solde CP</th>
 						<th data-sortable="true">Solde RCR</th>
 					</tr>
@@ -56,28 +59,37 @@
 					while ($row = mysqli_fetch_array($result))  
 						//foreach($result as $row)
 					{ 
-						$date_deb = new DateTime($row['Date_deb']); 
 						?>
 						<tr>
 							<td><?php echo $row['Nom']; ?></td>
 							<td><?php echo $row['Prenom']; ?></td>
-							<td><?php echo $date_deb->format('d-m-Y'); ?></td>
+							<td><?php echo $row['Date_envoie']; ?></td>
+							<td><?php echo $row['Date_deb']; ?></td>
 							<td><?php echo $row['NbEngage']; ?></td>
 							<td><?php echo $row['Type']; ?></td>
-							<td><?php if($row['MotifRefus'] != NULL){echo 'Refusée';}else{echo $row['Valide']? 'Validée' :'En attente';} ?></td>
+							<?php if($row['MotifRefus'] != NULL){ 
+								$Motif = $row['MotifRefus']; 
+								echo "<td><a href='#' title='Motif de refus' data-toggle='popover' data-trigger='focus' data-placement='bottom' data-content=".$Motif."><i class='fas fa-info'></i></a> Refusée</td>";
+							}else{ ?>
+								<td><?php echo $row['Valide']? 'Validée' : 'En attente';} ?></td>
+							<td><?php echo $row['Date_resFina']; ?></td>
 							<td><?php echo $row['SOLDECPN']; ?></td>
 							<td><?php echo $row['SOLDEJRRCR']; ?></td>
 						</tr>
 						<?php
 					}  
-					?>
+					?> 
 				</tbody>
 
 			</table>
 		</div>
 	</div>
 </div>
-
+<script>
+	$(document).ready(function(){
+	  $('[data-toggle="popover"]').popover();   
+	});
+</script>
 </body>
 
 </html>
