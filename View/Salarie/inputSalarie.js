@@ -21,25 +21,42 @@ $(document).ready(function() {
 		});
 
 function Modify(id){
-	//MAIL
+		// console.log('div'+id);
+		var it = document.getElementById('div'+ id);
+		// console.log(it);
+		it.innerHTML = '<input type = button name= '+id+' id="push"></input>';
+		$('#push').daterangepicker({
+			timePicker: false,
+			startDate: moment().startOf('day'),
+			endDate: moment().startOf('day').add(1, 'day'),
+			locale: {
+				format: ' DD/MM',
+				daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+				monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+			}
+		});
 
-	$("#Modify").daterangepicker({
-		timePicker: true,
-		startDate: moment().startOf('hour'),
-		endDate: moment().startOf('hour').add(32, 'hour'),
-		locale: {
-			format: ' DD/MM',
-			daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
-			monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
-		}
-	});
-	
-	var Dates = "2019-06-25";
-	var NbJours = 30;
+	}
+
+function sendModif() {
+	var it = document.getElementById('push');
+	console.log("sendModif");
+	var start = $(it).data("daterangepicker").startDate.format('YYYY-MM-DD HH:mm:ss');
+	var end = $(it).data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+	demiDeb = document.getElementById("demiJourneeStart").checked;
+	demiFin = document.getElementById("demiJourneeEnd").checked;
+	ModifyValue(start,end,demiDeb,demiFin);
+};
+
+function ModifyValue(start,end,demiDeb,demiFin){
+	var it = document.getElementById('push');
+	var id = it.name;
+	console.log(id);
+	it.innerHTML = '';
 	$.ajax({
-		url: "../../Model/editDemande.php",
+		url: "../../Control/controlModif.php",
 		type : "POST",
-		data : {"id" : id, "Date" : Dates, "NbJours" : NbJours} ,
+		data : {id : id, start : start, end : end,demiDeb : demiDeb,demiFin : demiFin} ,
 		dataType:'json',
 		success:function(data)
 		{
@@ -48,15 +65,16 @@ function Modify(id){
 		},
 		error: function(error)
 		{
-			console.log(error);
+			console.log("fail");
 		}
 	});
+	// document.location.reload();
 }
 
 function Delete(id){
 	
 	$.ajax({
-		url: "../../Model/editDemande.php",
+		url: "../../Model/eraseDemande.php",
 		type : "POST",
 		data : {"id" : id} ,
 		dataType:'json',

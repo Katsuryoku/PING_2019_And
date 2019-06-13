@@ -14,7 +14,7 @@
 	<script type="text/javascript"  src="inputSalarie.js"></script>
 	<script src="navbar.js"></script>
 	<script src="moment.min.js"></script>
-	<script src="daterangepicker.js"></script>
+	<script src="daterangepicker2.js"></script>
 	<script  src='pageSalarieNonCadre.js'></script>
 
 </head>

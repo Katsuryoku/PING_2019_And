@@ -46,7 +46,7 @@
 	}
 	
 	function queryRH($id){
-		include "../../View/RH/connect.php";
+		include "connect.php";
 		$query = "SELECT Prevalide FROM demande WHERE iddemande=".$id;
 		$result = mysqli_query($con,$query);
 		$row = mysqli_fetch_array($result);
