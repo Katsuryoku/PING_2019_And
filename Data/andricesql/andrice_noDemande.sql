@@ -47,13 +47,6 @@ CREATE TABLE IF NOT EXISTS `demande` (
   PRIMARY KEY (`iddemande`)
 ) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `demande`
---
-
-INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES
-(60, 2, 15, 15, '2019-06-13', 0, 1, 0, 0, NULL, NULL, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --

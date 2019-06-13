@@ -12,7 +12,7 @@ if (isset($_POST["startDate"]))
 	$demiFin = "FALSE";
 }
 include('../Model/createDemande.php');
-	$idtype= $_SESSION["idtype"];
+$idtype= $_SESSION["idtype"];
 
 createDemande($con,$startDate,$endDate,$demiDeb,$demiFin,$log,$idtype);
 ?>

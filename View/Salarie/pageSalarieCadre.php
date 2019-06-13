@@ -41,7 +41,7 @@ session_start();
 include('../../Control/controlSal.php');
 ?>	
 
-<div data-include="navbarC"></div>
+<div data-include="navbar"></div>
 
 
 <div data-include="sideBar"></div>
@@ -56,7 +56,7 @@ include('../../Control/controlSal.php');
 					<p >Solde actuel : <?php echo $soldeCpn;?> jours</p>
 					<p >Solde restant du N-1 : <?php echo $soldeCpnm1;?> jours</p>
 					<p >Pris en N : <?php echo $prisCpn;?> jours</p>
-					<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="calendarFunction()" onclick="calendarFunctionBis()"/></p>
+					<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="sendType('2');calendarFunction()" onclick="calendarFunctionBis()"/></p>
 
 				</div>
 
@@ -96,7 +96,7 @@ include('../../Control/controlSal.php');
 					<p >Solde actuel : <?php echo $soldeJRRCR;?> jours</p>
 					<p >Pris en N : <?php echo $prisJRRCR;?> jours</p>
 					<p >Acquis en N : <?php echo $acquisJRRCR;?> jours</p>
-					<p ><input type="submit" class="btn btn-info" value="Demande RCR" onclick="calendarFunctionBis()" onclick="calendarFunction()"/></p>
+					<p ><input type="submit" class="btn btn-info" value="Demande RCR" onclick="sendType('1');calendarFunctionBis()" onclick="calendarFunction()"/></p>
 				</div>
 
 

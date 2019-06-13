@@ -93,7 +93,7 @@ function openPopUpWindow(){
 	w.focus();
 }
 
-function sendType(type='')
+function sendType(type)
 {
 	$.ajax({
 		url: "../../Control/controlSetType.php",

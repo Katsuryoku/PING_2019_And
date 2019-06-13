@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 05 juin 2019 à 07:30
--- Version du serveur :  5.7.21
--- Version de PHP :  7.2.4
+-- Généré le :  jeu. 13 juin 2019 à 07:46
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `idsalaries` int(11) NOT NULL,
   `idRespHier` int(11) NOT NULL,
   `Date_deb` date NOT NULL,
+  `demiJournee` int(11) DEFAULT NULL,
   `NbEngage` int(11) NOT NULL,
   `Prevalide` tinyint(1) NOT NULL DEFAULT '0',
   `Valide` tinyint(1) NOT NULL DEFAULT '0',
@@ -44,17 +45,19 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `viewByRH` tinyint(1) NOT NULL DEFAULT '0',
   `viewByEmployee` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`iddemande`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `demande`
 --
 
-INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES
-(1, 1, 46, 20, '2019-06-05', 4, 1, 0, NULL, NULL, 1, 0, 0),
-(2, 1, 15, 15, '2019-06-14', 4, 0, 0, NULL, NULL, 1, 0, 0),
-(3, 15, 64, 15, '2019-06-18', 4, 1, 1, NULL, NULL, 1, 1, 1),
-(4, 4, 64, 15, '2019-06-14', 3, 1, 0, 'Dodo', NULL, 1, 1, 1);
+INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES
+(47, 2, 69, 64, '2019-06-13', 0, 1, 0, 0, NULL, NULL, 1, 0, 0),
+(46, 2, 69, 64, '2019-06-13', 0, 1, 0, 0, NULL, NULL, 1, 0, 0),
+(45, 2, 69, 64, '2019-06-13', 0, 1, 0, 0, NULL, NULL, 1, 0, 0),
+(43, 2, 69, 64, '2019-06-12', 0, 1, 0, 0, NULL, NULL, 1, 0, 0),
+(42, 1, 69, 64, '2019-06-25', 0, 30, 0, 0, NULL, NULL, 1, 0, 0),
+(41, 2, 69, 64, '2019-06-12', 1, 3, 1, 0, NULL, NULL, 1, 1, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
