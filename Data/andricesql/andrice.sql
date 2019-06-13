@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 13 juin 2019 à 09:46
+-- Généré le :  jeu. 13 juin 2019 à 10:48
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `Date_envoie` date DEFAULT NULL,
   `Date_resFina` date DEFAULT NULL,
   `demiJournee` int(11) DEFAULT NULL,
-  `NbEngage` int(11) NOT NULL,
+  `NbEngage` float NOT NULL,
   `Prevalide` tinyint(1) NOT NULL DEFAULT '0',
   `Valide` tinyint(1) NOT NULL DEFAULT '0',
   `MotifRefus` text,
