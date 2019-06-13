@@ -126,7 +126,7 @@
                     '<span class="drp-selected"></span>' +
 
                     '<button class="cancelBtn" type="button"></button>' +
-                    '<button class="applyBtn" disabled="disabled" type="button" onclick="Confirm()"></button> ' +
+                    '<button class="applyBtn" disabled="disabled" type="button" "></button> ' +
                 '</div>' +
             '</div>';
 
