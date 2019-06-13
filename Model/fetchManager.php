@@ -27,7 +27,7 @@
           $rowM = mysqli_fetch_array($resultM);
 
           
-          $output .='<tr><td>'.$row["iddemande"].'</td><td>'.$row["idtype"].'</td><td>'.$rowS["Nom"].' '.$rowS["Prenom"].'</td><td>'.$rowM["Nom"].' '.$rowM["Prenom"].'</td><td>'.$row["Date_deb"].'</td><td>'.$row["NbEngage"].'</td><td><button onclick="Accept('.$row["iddemande"].')">Accept</button><button onclick = "Refuse('.$row["iddemande"].')">Refuse</button></td></tr>';
+          $output .='<tr><td>'.$row["iddemande"].'</td><td>'.$row["idtype"].'</td><td>'.$rowS["Nom"].' '.$rowS["Prenom"].'</td><td>'.$rowM["Nom"].' '.$rowM["Prenom"].'</td><td>'.$row["Date_deb"].'</td><td>'.$row["Date_envoie"].'</td><td>'.$row["NbEngage"].'</td><td><button onclick="Accept('.$row["iddemande"].')">Accept</button><button onclick = "Refuse('.$row["iddemande"].')">Refuse</button></td></tr>';
         }
 
       $data = array(

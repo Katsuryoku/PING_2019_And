@@ -20,7 +20,8 @@
 			<th>Type</th>
 			<th>Nom</th>
 			<th>Manager</th>
-			<th>Date</th>
+			<th>Date Conge</th>
+			<th>Date Envoie</th>
 			<th>Nb Jours</th>
 			<th>Accept/Refuse</th>
 			</tr>

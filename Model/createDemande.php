@@ -43,12 +43,14 @@ function createDemande($con,$startDate,$endDate,$demiDeb,$demiFin, $login, $idty
 		}else{
 			$demiJournee=0;
 		}
+		$DateToday = new DateTime();
+		$DateToday = $DateToday->format("Y-m-d");
 		//var_dump($demiJournee);
 		//var_dump($NbEngage);
 		
 		
 		//var_dump($NbEngage);
-		$query = "INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES (NULL, ".$idtype.", ".$idsalaries.", ".$idRespHier.", '".$deb."', ".$demiJournee.", ".$NbEngage.", '0', '0', NULL, NULL, '0', '0', '0')";
+		$query = "INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`,`Date_envoie`,`Date_resFina`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES (NULL, ".$idtype.", ".$idsalaries.", ".$idRespHier.", '".$deb."','".$DateToday."', NULL, ".$demiJournee.", ".$NbEngage.", '0', '0', NULL, NULL, '0', '0', '0')";
 		//var_dump($query);
 		$result = mysqli_query($con, $query);
 
