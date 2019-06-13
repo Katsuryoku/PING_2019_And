@@ -164,6 +164,9 @@ include('../../Control/controlSal.php');
 													format: ' DD/MM',
 													daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 													monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+												},
+												isInvalidDate: function(date) {
+													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
 										});
@@ -206,6 +209,9 @@ include('../../Control/controlSal.php');
 													format: ' DD/MM ',
 													daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 													monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+												},
+												isInvalidDate: function(date) {
+													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
 										});
@@ -237,6 +243,9 @@ include('../../Control/controlSal.php');
 													format: ' DD/MM',
 													daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
 													monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+												},
+												isInvalidDate: function(date) {
+													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
 										});
