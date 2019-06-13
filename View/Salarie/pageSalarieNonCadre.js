@@ -84,13 +84,15 @@ function clickMotifAbsence(id,date,demi,nb){
 	
 	
 }
-function Confirm(){
-	 openPopUpWindow();
+function Confirm(cas){
+	 if(confirm("Etes-vous sûr?")){
+	 	send(cas);
+	 }
+
 }
 
-function openPopUpWindow(){
-	var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
-	w.focus();
+function openPopUpWindow(targetField){
+
 }
 
 function sendType(type)
@@ -124,15 +126,61 @@ function sendDate(startDate,endDate,demiDeb,demiFin){
 	})
 }
 
-function send() {
-	var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
-	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
-	demiDeb = document.getElementById("demiJourneeStart").checked;
-	demiFin = document.getElementById("demiJourneeEnd").checked;
-    console.log(start);
-    console.log(end);
-	sendDate(start,end,demiDeb,demiFin);
-    //console.log(demiDeb);
+function send(cas) {
+	switch(cas){
+		case 1 : 
+			var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+			var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+			demiDeb = document.getElementById("demiJourneeStart").checked;
+			demiFin = document.getElementById("demiJourneeEnd").checked;
+		    // console.log(start);
+		    // console.log(end);
+			sendDate(start,end,demiDeb,demiFin);
+		    //console.log(demiDeb);
+	    break;
+	    case 2 : 
+			var start = $('#pickerBis').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+			var end = $('#pickerBis').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+			demiDeb = document.getElementById("demiJourneeStart").checked;
+			demiFin = document.getElementById("demiJourneeEnd").checked;
+		    console.log(start);
+		    console.log(end);
+			sendDate(start,end,demiDeb,demiFin);
+		    //console.log(demiDeb);
+	    break;
+	    case 3 : 
+			var start = $('#pickerDeces').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+			var end = $('#pickerDeces').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+			demiDeb = document.getElementById("demiJourneeStart").checked;
+			demiFin = document.getElementById("demiJourneeEnd").checked;
+		    console.log(start);
+		    console.log(end);
+			sendDate(start,end,demiDeb,demiFin);
+		    //console.log(demiDeb);
+	    break;
+	    case 4 : 
+			var start = $('#pickerMariage').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+			var end = $('#pickerMariage').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+			demiDeb = document.getElementById("demiJourneeStart").checked;
+			demiFin = document.getElementById("demiJourneeEnd").checked;
+		    console.log(start);
+		    console.log(end);
+			sendDate(start,end,demiDeb,demiFin);
+		    //console.log(demiDeb);
+	    break;
+	    case 5 : 
+			var start = $('#pickerAbs').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
+			var end = $('#pickerAbs').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+			demiDeb = document.getElementById("demiJourneeStart").checked;
+			demiFin = document.getElementById("demiJourneeEnd").checked;
+		    console.log(start);
+		    console.log(end);
+			sendDate(start,end,demiDeb,demiFin);
+		    //console.log(demiDeb);
+	    break;
+	    default : console.log("error");	
+
+	}
 };
 
 function sendBis() {

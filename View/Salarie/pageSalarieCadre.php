@@ -83,7 +83,11 @@ include('../../Control/controlSal.php');
 										return (date <= Date.now());
 									}
 								});
+								$('#picker').on('apply.daterangepicker', function(ev, picker) {
+									Confirm(1);
+								});
 							});
+
 						</script>
 					</div>
 				</div>
@@ -124,6 +128,9 @@ include('../../Control/controlSal.php');
 									isInvalidDate: function(date) {
 										return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 									}
+								});
+								$('#pickerBis').on('apply.daterangepicker', function(ev, picker) {
+									Confirm(2);
 								});
 							});
 						</script>
@@ -211,7 +218,9 @@ include('../../Control/controlSal.php');
 													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
-											
+											$('#pickerDeces').on('apply.daterangepicker', function(ev, picker) {
+												Confirm(3);
+											});
 										});
 									</script>
 								</div>
@@ -257,6 +266,10 @@ include('../../Control/controlSal.php');
 													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
+											$('#pickerMariage').on('apply.daterangepicker', function(ev, picker) {
+												Confirm(4);
+											});
+
 										});
 									</script>
 								</div>
@@ -291,6 +304,9 @@ include('../../Control/controlSal.php');
 												isInvalidDate: function(date) {
 													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
+											});
+											$('#pickerMariage').on('apply.daterangepicker', function(ev, picker) {
+												Confirm(5);
 											});
 										});
 									</script>

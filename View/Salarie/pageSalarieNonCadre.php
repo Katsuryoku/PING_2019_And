@@ -57,7 +57,7 @@ include('../../Control/controlSal.php');
 					<p >Solde actuel : <?php echo $soldeCpn;?> jours</p>
 					<p >Solde restant du N-1 : <?php echo $soldeCpnm1;?> jours</p>
 					<p >Pris en N : <?php echo $prisCpn;?> jours</p>
-					<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="sendType('2');calendarFunction(); calendarFunctionBis()" /></p>
+					<p ><input type="submit" class="btn btn-info" value="Demande CP" onclick="sendType('1');calendarFunction(); calendarFunctionBis()" /></p>
 				</div>
 
 
@@ -84,6 +84,9 @@ include('../../Control/controlSal.php');
 										return (date <= Date.now());
 									}
 
+								});
+								$('#picker').on('apply.daterangepicker', function(ev, picker) {
+									Confirm(1);
 								});
 
 							});
@@ -172,6 +175,9 @@ include('../../Control/controlSal.php');
 													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
+											$('#pickerDeces').on('apply.daterangepicker', function(ev, picker) {
+												Confirm(3);
+											});
 										});
 									</script>
 								</div>
@@ -217,6 +223,9 @@ include('../../Control/controlSal.php');
 													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
 											});
+											$('#pickerMariage').on('apply.daterangepicker', function(ev, picker) {
+												Confirm(4);
+											});
 										});
 									</script>
 								</div>
@@ -250,6 +259,9 @@ include('../../Control/controlSal.php');
 												isInvalidDate: function(date) {
 													return (date.day() == 0 || date.day() == 6 || date <= Date.now());
 												}
+											});
+											$('#pickerAbs').on('apply.daterangepicker', function(ev, picker) {
+												Confirm(5);
 											});
 										});
 									</script>

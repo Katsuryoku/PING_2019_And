@@ -1,11 +1,11 @@
 
 <?php  
+include "connect.php";
+include ("sendMailNotif.php");
 if (isset($_POST["id"])) {
-        {
-            error_reporting(2);
-            
-            
+        {      
             $id = $_POST["id"];
+            var_dump($id);
             sendMailNote($id,"ES");
             $query = "DELETE FROM demande WHERE iddemande = ".$id;
 

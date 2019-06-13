@@ -5,15 +5,16 @@
 	</head>
 	<body>
 		<p>Confirmez votre choix</p>
-		<button onclick="window.close()">Annuler</button>
+		<button onclick="">Annuler</button>
 		<button onclick="returnDate()">Accepter</button>
 		<script type="text/javascript">
 		    // return the value to the parent window
 		    
 		    function returnDate(){
-		    	opener.send() ;
-		    	opener.location.reload();
-		    	window.close();
+		    	console.log(targetField);
+		    	opener.send(targetField);
+		    	// opener.location.reload();
+		    	// window.close();window.close()
 		    }
 
 

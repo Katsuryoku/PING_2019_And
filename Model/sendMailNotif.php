@@ -64,7 +64,6 @@
 			$mailE = queryMails($id, "Employe");
 			$mailM = queryMails($id, "Manager");
 			$mailR = queryMails($id, "RH");
-			var_dump($mailR);
 			$date = queryDate($id);
 			$type = queryType($id);
 
