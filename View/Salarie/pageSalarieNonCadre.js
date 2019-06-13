@@ -73,7 +73,7 @@ function clickMotifAbsence(id,date,demi,nb){
 		typeAbs.style.display=calendarFunctionAbs();
 	}
 	else {
-
+		sendType("3"+value);
 		let typeDeces = document.getElementById("deces");
 		typeDeces.style.display="none";	
 		let typeMariage = document.getElementById("mariage");
@@ -196,6 +196,9 @@ function calendarFunctionTer() {
 
 
 function calendarFunctionMariage() {
+	let value = document.getElementById("casMariage").value;
+	if (value===1) sendType("403");
+	else sendType('404');
 	var x = document.getElementById("myDIVMariage");
 	if (x.style.display === "none") {
 		x.style.display = "block";
@@ -205,6 +208,8 @@ function calendarFunctionMariage() {
 }
 
 function calendarFunctionDeces() {
+	let value = document.getElementById("casDeces").value;
+	sendType("40"+value);
 	var x = document.getElementById("myDIVDeces");
 	if (x.style.display === "none") {
 		x.style.display = "block";

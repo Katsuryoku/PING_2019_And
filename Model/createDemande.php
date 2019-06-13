@@ -2,6 +2,7 @@
 	session_start();
 
 	include "connect.php";
+	
 	if (isset($_POST["type"])){
 
 		$idtype= $_POST["type"];
