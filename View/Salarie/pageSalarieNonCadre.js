@@ -85,14 +85,14 @@ function clickMotifAbsence(id,date,demi,nb){
 	
 }
 function Confirm(cas){
-	 openPopUpWindow(cas);
+	 if(confirm("Etes-vous sûr?")){
+	 	send(cas);
+	 }
 
 }
 
 function openPopUpWindow(targetField){
-	var w = window.open('Confirmation.html','_blank','width=400,height=400,scrollbars=1');
-	w.targetField = targetField;
-	w.focus();
+
 }
 
 function sendType(type)
@@ -133,8 +133,8 @@ function send(cas) {
 			var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
 			demiDeb = document.getElementById("demiJourneeStart").checked;
 			demiFin = document.getElementById("demiJourneeEnd").checked;
-		    console.log(start);
-		    console.log(end);
+		    // console.log(start);
+		    // console.log(end);
 			sendDate(start,end,demiDeb,demiFin);
 		    //console.log(demiDeb);
 	    break;
