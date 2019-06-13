@@ -8,7 +8,7 @@ $stmt2->bind_result($genre);
 $stmt2->fetch();
 $stmt2->close();
 			// on crée la requete SQL 
-$query = "SELECT salarie.Nom as Nom,Prenom,DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, NbEngage , typedemande.Nom as Type, Valide, MotifRefus, SOLDECPN, SOLDEJRRCR, demande.idRespHier FROM demande JOIN salarie on demande.idsalaries = salarie.idsalaries JOIN solde on demande.idsalaries = solde.idsalaries JOIN typedemande on demande.idtype = typedemande.idtype WHERE demande.idRespHier = 64";//.$idmanager
+$query = "SELECT salarie.Nom as Nom,Prenom,DATE_FORMAT(Date_deb, '%d-%m-%Y') as Date_deb, DATE_FORMAT(Date_envoie, '%d-%m-%Y') as Date_envoie, DATE_FORMAT(Date_resFina, '%d-%m-%Y') as Date_resFina, NbEngage , typedemande.Nom as Type, Valide, MotifRefus, SOLDECPN, SOLDEJRRCR, demande.idRespHier FROM demande JOIN salarie on demande.idsalaries = salarie.idsalaries JOIN solde on demande.idsalaries = solde.idsalaries JOIN typedemande on demande.idtype = typedemande.idtype WHERE demande.idRespHier = 64";//.$idmanager
 
 						// on envoie la requête 
 $result = mysqli_query($con, $query);
