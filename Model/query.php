@@ -37,6 +37,13 @@
 		$row = mysqli_fetch_array($result);
 		return $row["Nom"];
 	}
+	function queryType2($id){
+		include "connect.php";
+		$query = "SELECT Nom FROM typedemande WHERE idtype=".$id;
+		$result = mysqli_query($con,$query);
+		$row = mysqli_fetch_array($result);
+		return $row["Nom"];
+	}
 	function queryMotif($id){
 		include "connect.php";
 		echo $query = "SELECT MotifRefus FROM demande WHERE iddemande=".$id;

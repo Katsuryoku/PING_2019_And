@@ -85,7 +85,8 @@ function clickMotifAbsence(id,date,demi,nb){
 	
 }
 function Confirm(){
-	openPopUpWindow();
+	//openPopUpWindow();
+	send();
 }
 
 function openPopUpWindow(){
@@ -123,6 +124,7 @@ function sendDate(startDate,endDate,demiDeb,demiFin){
 		}
 	})
 }
+
 function send() {
 	var start = $('#picker').data('daterangepicker').startDate.format('YYYY-MM-DD HH:mm:ss');
 	var end = $('#picker').data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
