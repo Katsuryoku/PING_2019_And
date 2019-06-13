@@ -38,4 +38,5 @@ Comment configurer la BDD MySQL :
 	b.	Configurer les variables $host, $dbname, $ndc et $password.
 
 	c.	Aller dans votre client base de données et installer au moins :
-			(Adresse du Projet) /Data/AndriceSQL/andrice_noDonnee.sql
+	
+	(Adresse du Projet) /Data/AndriceSQL/andrice_noDonnee.sql
