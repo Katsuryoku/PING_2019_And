@@ -2,11 +2,11 @@
 	<div class="container-fluid">
 		<table class="table table-striped table-hover table-responsive" style="padding:10px;">
 			<tr style="background-color:gainsboro;">
-				<th>Legende :</th></tr>
+				<!--<th>Legende :</th></tr>
 				<tr style="background-color:red;"><td>Refusée</td></tr>
 				<tr style="background-color:orange;"><td>En attente</td></tr>
 				<tr style="background-color:lime;"><td>Validée</td></tr>
-				<tr style="background-color:gainsboro;">
+				<tr style="background-color:gainsboro;"> -->
 				<th>Dernières demandes</th>
 			</tr>
 			<?php 

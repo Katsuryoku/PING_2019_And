@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 13 juin 2019 à 10:55
+-- Généré le :  jeu. 13 juin 2019 à 16:04
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -47,15 +47,18 @@ CREATE TABLE IF NOT EXISTS `demande` (
   `viewByRH` tinyint(1) NOT NULL DEFAULT '0',
   `viewByEmployee` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`iddemande`)
-) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `demande`
 --
 
 INSERT INTO `demande` (`iddemande`, `idtype`, `idsalaries`, `idRespHier`, `Date_deb`, `Date_envoie`, `Date_resFina`, `demiJournee`, `NbEngage`, `Prevalide`, `Valide`, `MotifRefus`, `idjustif`, `viewByManager`, `viewByRH`, `viewByEmployee`) VALUES
-(73, 2, 69, 15, '2019-06-13', '2019-06-13', NULL, 0, 1, 0, 0, NULL, NULL, 0, 0, 0),
-(80, 2, 69, 15, '2019-06-13', '2019-06-13', NULL, 1, 13, 0, 0, NULL, NULL, 0, 0, 0);
+(73, 2, 69, 64, '2019-06-13', '2019-06-13', NULL, 0, 1, 0, 0, NULL, NULL, 0, 0, 0),
+(80, 2, 69, 64, '2019-06-13', '2019-06-13', '2019-06-13', 1, 13, 0, 0, 'dodo', NULL, 0, 0, 0),
+(81, 1, 15, 64, '2019-06-14', '2019-06-13', NULL, 0, 1, 0, 0, NULL, NULL, 0, 0, 0),
+(82, 1, 15, 64, '2019-06-14', '2019-06-13', NULL, 0, 1, 0, 0, NULL, NULL, 0, 0, 0),
+(83, 2, 15, 64, '2019-06-18', '2019-06-13', NULL, 0, 11, 0, 0, NULL, NULL, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -101,10 +104,10 @@ CREATE TABLE IF NOT EXISTS `salarie` (
 --
 
 INSERT INTO `salarie` (`idsalaries`, `Nom`, `Prenom`, `Trigramme`, `Nationalite`, `Date_Naissance`, `Lieu_Naissance`, `Dept_Naissance`, `Sexe`, `N_SS`, `Famille`, `Statut`, `Categorie`, `SalFixe`, `Date_Entre`, `Date_Sortie`, `NumTelPerso`, `NumTelPro`, `MailPro`, `Position`, `login`, `mdp`, `mdpTmp`, `mdpIntra`, `mdpTmpIntra`, `idRespHier`, `SituationMarital`, `EnfantAcharge`) VALUES
-(15, 'Test', 'Test', 'TET', 'FRANCAISE', '1981-11-19', 'Toulouse', 31, 'Homme', '1 81 11 31 555 463 32', 'Business', 'Cadre', 'BM', 2500, '2014-09-01', NULL, 101010101, 508700470, 'urufu.mion@gmail.com', 0, 'JBR', '1035148889', '-1', '9b79621498a545fdb1a522f149e62bde0de466e93574db19972e38570495c91b', '', 15, NULL, NULL),
-(3, 'Test1', 'Test1', 'TET', 'FRANCAISE', '1981-11-19', 'Toulouse', 0, 'Homme', '1 97 11 97 209 830 10', 'Siege', 'ETAM CP', 'RRH', 1402, '2017-04-10', NULL, 5046082, 508700470, 'urufu@me.com', 2.2, 'DDI', '-1', '-1', '2365656fe8873c0f5da14aa496deb33112729378e51ee3c580321dbe5b8b75b9', '', 15, 'Celibataire', NULL),
-(64, 'Test1', 'Test2', 'TET', 'FRANCAISE', '1996-12-15', 'Valence', 26, 'Femme', '2 96 12 26 362 158 51', 'Siege', 'ETAM', 'CDR', 1374, '2017-08-28', NULL, 5040907, 508700470, 'urufu@icloud.com', 2.2, 'MANA', '224201415', '-1', '848c5677d5f2041be051e1f6f3adeccb20b23d6e318c8d73a7abe723f4e9cfc6', '', 15, NULL, NULL),
-(69, 'Loup', 'Jocelyne', 'RET', 'Française', '1963-06-09', 'Paris', 75, 'Femme', '2 63 75 31 555 463 32', 'Siege', 'ETAM', 'LTT', 1500, '2010-06-25', NULL, 54647654, 76987654, 'jocelyne.loup@andricegroup.com', 0, 'SF', 'jhvzdbscdkjb', 'jdqcnjsndcjkncdjn', 'SECRET', 'trcjfvgjhbsdckvgj,b ', 15, NULL, NULL);
+(15, 'Test', 'Test', 'TET', 'FRANCAISE', '1981-11-19', 'Toulouse', 31, 'Homme', '1 81 11 31 555 463 32', 'Business', 'Cadre', 'BM', 2500, '2014-09-01', NULL, 101010101, 508700470, 'urufu.mion@gmail.com', 0, 'JBR', '1035148889', '-1', '9b79621498a545fdb1a522f149e62bde0de466e93574db19972e38570495c91b', '', 64, NULL, NULL),
+(3, 'Test1', 'Test1', 'TET', 'FRANCAISE', '1981-11-19', 'Toulouse', 0, 'Homme', '1 97 11 97 209 830 10', 'Siege', 'ETAM CP', 'RRH', 1402, '2017-04-10', NULL, 5046082, 508700470, 'urufu.mion@gmail.com', 2.2, 'DDI', '-1', '-1', '2365656fe8873c0f5da14aa496deb33112729378e51ee3c580321dbe5b8b75b9', '', 15, 'Celibataire', NULL),
+(64, 'Test1', 'Test2', 'TET', 'FRANCAISE', '1996-12-15', 'Valence', 26, 'Femme', '2 96 12 26 362 158 51', 'Siege', 'ETAM', 'CDR', 1374, '2017-08-28', NULL, 5040907, 508700470, 'urufu.mion@gmail.com', 2.2, 'MANA', '224201415', '-1', '848c5677d5f2041be051e1f6f3adeccb20b23d6e318c8d73a7abe723f4e9cfc6', '', 64, NULL, NULL),
+(69, 'Loup', 'Jocelyne', 'RET', 'Française', '1963-06-09', 'Paris', 75, 'Femme', '2 63 75 31 555 463 32', 'Siege', 'ETAM', 'LTT', 1500, '2010-06-25', NULL, 54647654, 76987654, 'urufu.mion@gmail.com', 0, 'SF', 'jhvzdbscdkjb', 'jdqcnjsndcjkncdjn', 'SECRET', 'trcjfvgjhbsdckvgj,b ', 64, NULL, NULL);
 
 -- --------------------------------------------------------
 

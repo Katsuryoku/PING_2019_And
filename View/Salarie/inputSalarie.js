@@ -24,50 +24,84 @@ function Modify(id){
 		// console.log('div'+id);
 		var it = document.getElementById('div'+ id);
 		// console.log(it);
-		it.innerHTML = '<input type = button name= '+id+' id="push"></input>';
-		$('#push').daterangepicker({
-			timePicker: false,
-			startDate: moment().startOf('day'),
-			endDate: moment().startOf('day').add(1, 'day'),
-			locale: {
-				format: ' DD/MM',
-				daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
-				monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+		it.innerHTML = '<input type = button name= '+id+' id="push'+id+'"></input>';
+		$.ajax({
+			url:"../../Model/querytype.php",
+			type : 'POST',
+			data : {'id' : id},
+			dataType:'json',
+			success:function(data)
+			{
+				if (data == '2'){
+					$('#push'+id).daterangepicker({
+						timePicker: false,
+						startDate: moment().startOf('day'),
+						endDate: moment().startOf('day').add(1, 'day'),
+						locale: {
+							format: ' DD/MM',
+							daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+							monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+						},
+						isInvalidDate: function(date) {
+							return (date <= Date.now());
+						}
+					});
+				}else{
+					$('#push'+id).daterangepicker({
+						timePicker: false,
+						startDate: moment().startOf('day'),
+						endDate: moment().startOf('day').add(1, 'day'),
+						locale: {
+							format: ' DD/MM',
+							daysOfWeek: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+							monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+						},
+						isInvalidDate: function(date) {
+							return (date.day() == 0 || date.day() == 6 || date <= Date.now());
+						}
+					});
+				}
+			},
+			error: function(d)
+			{
+				console.log("error");
+				alert("error");
 			}
-		});
+		})
+		
 
 	}
 
-function sendModif() {
-	var it = document.getElementById('push');
-	console.log("sendModif");
-	var start = $(it).data("daterangepicker").startDate.format('YYYY-MM-DD HH:mm:ss');
-	var end = $(it).data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
-	demiDeb = document.getElementById("demiJourneeStart").checked;
-	demiFin = document.getElementById("demiJourneeEnd").checked;
-	ModifyValue(start,end,demiDeb,demiFin);
-};
+	function sendModif() {
+		var it = document.getElementById('push');
+		console.log("sendModif");
+		var start = $(it).data("daterangepicker").startDate.format('YYYY-MM-DD HH:mm:ss');
+		var end = $(it).data('daterangepicker').endDate.format('YYYY-MM-DD HH:mm:ss');
+		demiDeb = document.getElementById("demiJourneeStart").checked;
+		demiFin = document.getElementById("demiJourneeEnd").checked;
+		ModifyValue(start,end,demiDeb,demiFin);
+	};
 
-function ModifyValue(start,end,demiDeb,demiFin){
-	var it = document.getElementById('push');
-	var id = it.name;
-	console.log(id);
-	it.innerHTML = '';
-	$.ajax({
-		url: "../../Control/controlModif.php",
-		type : "POST",
-		data : {id : id, start : start, end : end,demiDeb : demiDeb,demiFin : demiFin} ,
-		dataType:'json',
-		success:function(data)
-		{
-			console.log(data);
-			console.log("Accepted");
-		},
-		error: function(error)
-		{
-			console.log("fail");
-		}
-	});
+	function ModifyValue(start,end,demiDeb,demiFin){
+		var it = document.getElementById('push');
+		var id = it.name;
+		console.log(id);
+		it.innerHTML = '';
+		$.ajax({
+			url: "../../Control/controlModif.php",
+			type : "POST",
+			data : {id : id, start : start, end : end,demiDeb : demiDeb,demiFin : demiFin} ,
+			dataType:'json',
+			success:function(data)
+			{
+				console.log(data);
+				console.log("Accepted");
+			},
+			error: function(error)
+			{
+				console.log("fail");
+			}
+		});
 	// document.location.reload();
 }
 
